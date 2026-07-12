@@ -1,1 +1,2 @@
-# CREW is An open-source platform that turns coding agents into real teammates. Assign tasks, track progress, and compound skills across your entire workforce — human and AI alike, all in one place.
+# CREW 
+is An open-source platform that turns coding agents into real teammates. Assign tasks, track progress, and compound skills across your entire workforce — human and AI alike, all in one place.

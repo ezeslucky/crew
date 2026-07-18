@@ -1,9 +1,14 @@
 {
-  "extends": "@repo/typescript-config/react-library.json",
+  "extends": "@crew/tsconfig/react-library.json",
   "compilerOptions": {
     "outDir": "dist",
-    "strictNullChecks": true
+    "rootDir": ".",
+    "paths": {
+      "@/lib/utils": ["./lib/utils.ts"],
+      "@/hooks/*": ["./hooks/*"],
+      "@/components/ui/*": ["./components/ui/*"]
+    }
   },
-  "include": ["src"],
+  "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "dist"]
 }

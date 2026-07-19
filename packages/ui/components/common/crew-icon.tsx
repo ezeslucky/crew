@@ -26,11 +26,7 @@ const borderedSizes = {
   lg: { wrapper: "p-2.5", icon: "size-5" },
 };
 
-/**
- * Pure CSS 8-pointed asterisk icon matching the Multica logo.
- * Uses currentColor so it adapts to light/dark themes automatically.
- * Clip-path polygon traced from the original SVG path coordinates.
- */
+
 export function CrewIcon({
   className,
   animate = false,

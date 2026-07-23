@@ -1,0 +1,3 @@
+{
+  "extends": "@crew/tsconfig/node.json"
+}

@@ -1,0 +1,24 @@
+{
+  "prefix": "custom-public",
+  "name": "Crew Custom Public",
+  "total": 146,
+  "version": "0.0.0-private",
+  "author": {
+    "name": "Aurobindo",
+    "url": "https://github.com/ezeslucky/crew"
+  },
+  "license": {
+    "title": "Modified Apache 2.0",
+    "spdx": "Apache-2.0",
+    "url": "https://github.com/ezeslucky/crew/blob/main/LICENSE"
+  },
+  "samples": [
+    "agent-building-blocks",
+    "avatar-user",
+    "billing-ar-cube-1",
+    "billing-asterisk",
+    "billing-aws-marketplace-dark",
+    "billing-aws-marketplace-light"
+  ],
+  "palette": false
+}

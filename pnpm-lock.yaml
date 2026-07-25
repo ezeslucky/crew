@@ -755,7 +755,7 @@ importers:
 
   cli:
     dependencies:
-      '@dify/contracts':
+      '@crew/contracts':
         specifier: workspace:*
         version: link:../packages/contracts
       '@napi-rs/keyring':
@@ -801,7 +801,7 @@ importers:
         specifier: 'catalog:'
         version: 4.4.3
     devDependencies:
-      '@dify/tsconfig':
+      '@crew/tsconfig':
         specifier: workspace:*
         version: link:../packages/tsconfig
       '@hono/node-server':
@@ -840,10 +840,10 @@ importers:
       '@cucumber/cucumber':
         specifier: 'catalog:'
         version: 13.1.1
-      '@dify/contracts':
+      '@crew/contracts':
         specifier: workspace:*
         version: link:../packages/contracts
-      '@dify/tsconfig':
+      '@crew/tsconfig':
         specifier: workspace:*
         version: link:../packages/tsconfig
       '@orpc/client':
@@ -898,7 +898,7 @@ importers:
         specifier: 'catalog:'
         version: 4.4.3
     devDependencies:
-      '@dify/tsconfig':
+      '@crew/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       '@hey-api/openapi-ts':
@@ -938,7 +938,7 @@ importers:
         specifier: 'catalog:'
         version: 4.12.31
     devDependencies:
-      '@dify/tsconfig':
+      '@crew/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       '@types/node':
@@ -957,7 +957,7 @@ importers:
         specifier: 'catalog:'
         version: 4.1.10(@types/node@25.9.5)(@vitest/browser-playwright@4.1.10)(@vitest/browser-preview@4.1.10)(@vitest/coverage-v8@4.1.10)(@voidzero-dev/vite-plus-core@0.2.5(@types/node@25.9.5)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1)(typescript@7.0.2)(yaml@2.9.0))(happy-dom@20.11.0)
 
-  packages/dify-ui:
+  packages/crew-ui:
     dependencies:
       clsx:
         specifier: 'catalog:'
@@ -972,7 +972,7 @@ importers:
       '@chromatic-com/storybook':
         specifier: 'catalog:'
         version: 5.2.1(storybook@10.5.2(@types/react@19.2.17)(react@19.2.7)(vite-plus@0.2.5(@types/node@26.0.1)(@typescript/typescript6@6.0.2)(@vitest/browser-playwright@4.1.10)(@vitest/coverage-v8@4.1.10)(@voidzero-dev/vite-plus-core@0.2.5(@types/node@26.0.1)(@typescript/typescript6@6.0.2)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))(esbuild@0.28.1)(happy-dom@20.11.0)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0)))
-      '@dify/tsconfig':
+      '@crew/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       '@egoist/tailwindcss-icons':
@@ -1074,7 +1074,7 @@ importers:
 
   packages/jotai-tanstack-form:
     devDependencies:
-      '@dify/tsconfig':
+      '@crew/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       '@tanstack/form-core':
@@ -1108,7 +1108,7 @@ importers:
         specifier: 'catalog:'
         version: '@typescript/typescript6@6.0.2'
     devDependencies:
-      '@dify/tsconfig':
+      '@crew/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       '@types/node':
@@ -1125,7 +1125,7 @@ importers:
 
   sdks/nodejs-client:
     devDependencies:
-      '@dify/tsconfig':
+      '@crew/tsconfig':
         specifier: workspace:*
         version: link:../../packages/tsconfig
       '@types/node':
@@ -1480,13 +1480,13 @@ importers:
       '@chromatic-com/storybook':
         specifier: 'catalog:'
         version: 5.2.1(storybook@10.5.2(@types/react@19.2.17)(react@19.2.7)(vite-plus@0.2.5(@types/node@25.9.5)(@typescript/typescript6@6.0.2)(@vitest/browser-playwright@4.1.10)(@vitest/coverage-v8@4.1.10)(@voidzero-dev/vite-plus-core@0.2.5(@types/node@25.9.5)(@typescript/typescript6@6.0.2)(esbuild@0.28.1)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))(esbuild@0.28.1)(happy-dom@20.11.0)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0)))
-      '@dify/contracts':
+      '@crew/contracts':
         specifier: workspace:*
         version: link:../packages/contracts
-      '@dify/iconify-collections':
+      '@crew/iconify-collections':
         specifier: workspace:*
         version: link:../packages/iconify-collections
-      '@dify/tsconfig':
+      '@crew/tsconfig':
         specifier: workspace:*
         version: link:../packages/tsconfig
       '@egoist/tailwindcss-icons':
@@ -1501,9 +1501,9 @@ importers:
       '@langgenius/dev-proxy':
         specifier: workspace:*
         version: link:../packages/dev-proxy
-      '@langgenius/dify-ui':
+      '@crew/crew-ui':
         specifier: workspace:*
-        version: link:../packages/dify-ui
+        version: link:../packages/crew-ui
       '@mdx-js/loader':
         specifier: 'catalog:'
         version: 3.1.1(supports-color@10.2.2)

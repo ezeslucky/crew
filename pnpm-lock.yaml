@@ -1498,7 +1498,7 @@ importers:
       '@iconify-json/ri':
         specifier: 'catalog:'
         version: 1.2.10
-      '@langgenius/dev-proxy':
+      '@crew/dev-proxy':
         specifier: workspace:*
         version: link:../packages/dev-proxy
       '@crew/crew-ui':

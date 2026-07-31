@@ -15,7 +15,7 @@ import { useTranslation } from 'react-i18next'
 import ActionButton from '@/app/components/base/action-button'
 import { useThemeContext } from '@/app/components/base/chat/embedded-chatbot/theme/theme-context'
 import { InputVarType } from '@/app/components/workflow/types'
-import { langGeniusVersionInfoAtom } from '@/context/version-state'
+import { crewVersionInfoAtom } from '@/context/version-state'
 import { basePath } from '@/utils/var'
 import {
   compressAndEncodeBase64,
@@ -141,11 +141,11 @@ const EmbeddedContent = ({
   )
   const latestResolvedIframeUrlRef = useRef('')
 
-  const langGeniusVersionInfo = useAtomValue(langGeniusVersionInfoAtom)
+  const crewVersionInfo = useAtomValue(crewVersionInfoAtom)
   const themeBuilder = useThemeContext()
   const isTestEnv =
-    langGeniusVersionInfo.current_env === 'TESTING' ||
-    langGeniusVersionInfo.current_env === 'DEVELOPMENT'
+    crewVersionInfo.current_env === 'TESTING' ||
+    crewVersionInfo.current_env === 'DEVELOPMENT'
 
   const handleHiddenInputValueChange = (variable: string, value: WorkflowLaunchInputValue) => {
     const nextHiddenInputValues = {

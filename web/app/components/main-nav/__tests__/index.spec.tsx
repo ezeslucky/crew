@@ -401,7 +401,7 @@ const consoleState: ConsoleStateFixture = {
   isCurrentWorkspaceEditor: true,
   isCurrentWorkspaceDatasetOperator: false,
   refreshCurrentWorkspace: vi.fn(),
-  langGeniusVersionInfo: {
+  crewVersionInfo: {
     current_env: 'testing',
     current_version: '1.0.0',
     latest_version: '1.0.0',
@@ -634,8 +634,8 @@ describe('MainNav', () => {
   it('renders the desktop environment tag from the old header contract', () => {
     mockConsoleState.current = {
       ...consoleState,
-      langGeniusVersionInfo: {
-        ...consoleState.langGeniusVersionInfo,
+      crewVersionInfo: {
+        ...consoleState.crewVersionInfo,
         current_env: 'TESTING',
       },
     }

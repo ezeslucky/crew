@@ -18,7 +18,7 @@ import {
   useSetEducationReverifyPrevExpireAt,
 } from '@/app/education-apply/storage'
 import { userProfileAtom } from '@/context/account-state'
-import { langGeniusVersionInfoAtom } from '@/context/version-state'
+import { crewVersionInfoAtom } from '@/context/version-state'
 import { useRouter } from '@/next/navigation'
 import { useLogout } from '@/service/use-common'
 import AccountAbout from '../account-about'
@@ -48,7 +48,7 @@ export default function AppSelector({ trigger, variant = 'default' }: AccountDro
   )
   const { t } = useTranslation()
   const userProfile = useAtomValue(userProfileAtom)
-  const langGeniusVersionInfo = useAtomValue(langGeniusVersionInfoAtom)
+  const crewVersionInfo = useAtomValue(crewVersionInfoAtom)
   const clearEducationReverifyPrevExpireAt = useSetEducationReverifyPrevExpireAt()
   const clearEducationReverifyHasNoticed = useSetEducationReverifyHasNoticed()
   const clearEducationExpiredHasNoticed = useSetEducationExpiredHasNoticed()
@@ -115,7 +115,7 @@ export default function AppSelector({ trigger, variant = 'default' }: AccountDro
       {aboutVisible && (
         <AccountAbout
           onCancel={() => setAboutVisible(false)}
-          langGeniusVersionInfo={langGeniusVersionInfo}
+          crewVersionInfo={crewVersionInfo}
         />
       )}
     </div>

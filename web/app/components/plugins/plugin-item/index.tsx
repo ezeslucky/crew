@@ -17,7 +17,7 @@ import { useCallback, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import useRefreshPluginList from '@/app/components/plugins/install-plugin/hooks/use-refresh-plugin-list'
 import { API_PREFIX } from '@/config'
-import { langGeniusVersionInfoAtom } from '@/context/version-state'
+import { crewVersionInfoAtom } from '@/context/version-state'
 import { systemFeaturesQueryOptions } from '@/features/system-features/client'
 import { useRenderI18nObject } from '@/hooks/use-i18n'
 import useTheme from '@/hooks/use-theme'
@@ -81,15 +81,15 @@ const PluginItem: FC<Props> = ({
     return [PluginSource.github, PluginSource.marketplace].includes(source) ? author : ''
   }, [source, author])
 
-  const langGeniusVersionInfo = useAtomValue(langGeniusVersionInfoAtom)
+  const crewVersionInfo = useAtomValue(crewVersionInfoAtom)
 
   const isCrewVersionCompatible = useMemo(() => {
-    if (!langGeniusVersionInfo.current_version) return true
+    if (!crewVersionInfo.current_version) return true
     return isEqualOrLaterThanVersion(
-      langGeniusVersionInfo.current_version,
+      crewVersionInfo.current_version,
       declarationMeta.minimum_crew_version ?? '0.0.0',
     )
-  }, [declarationMeta.minimum_crew_version, langGeniusVersionInfo.current_version])
+  }, [declarationMeta.minimum_crew_version, crewVersionInfo.current_version])
 
   const isDeprecated = useMemo(() => {
     return status === 'deleted' && !!deprecated_reason

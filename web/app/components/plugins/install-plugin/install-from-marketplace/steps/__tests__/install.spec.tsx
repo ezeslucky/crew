@@ -66,7 +66,7 @@ const mockHandleInstallTaskStart = vi.fn()
 let mockPluginDeclaration: { manifest: { meta: { minimum_crew_version: string } } } | undefined
 let mockCanInstall = true
 const mockConsoleState = vi.hoisted(() => ({
-  langGeniusVersionInfo: { current_version: '1.0.0' },
+  crewVersionInfo: { current_version: '1.0.0' },
 }))
 
 // Mock useCheckInstalled
@@ -82,7 +82,7 @@ vi.mock('@/context/version-state', async () => {
   const { createVersionStateModuleMock } = await import('@/test/console/state-fixture')
 
   return createVersionStateModuleMock(() => ({
-    langGeniusVersionInfo: mockConsoleState.langGeniusVersionInfo,
+    crewVersionInfo: mockConsoleState.crewVersionInfo,
   }))
 })
 
@@ -113,7 +113,7 @@ vi.mock('../../../base/check-task-status', () => ({
 vi.mock('@/app/components/plugins/install-plugin/hooks/use-plugin-install-permission', () => ({
   default: () => ({
     canInstallPlugin: true,
-    currentCrewVersion: mockConsoleState.langGeniusVersionInfo.current_version,
+    currentCrewVersion: mockConsoleState.crewVersionInfo.current_version,
   }),
 }))
 
@@ -188,7 +188,7 @@ describe('Install Component (steps/install.tsx)', () => {
     mockIsLoading = false
     mockPluginDeclaration = undefined
     mockCanInstall = true
-    mockConsoleState.langGeniusVersionInfo = { current_version: '1.0.0' }
+    mockConsoleState.crewVersionInfo = { current_version: '1.0.0' }
     mockInstallPackageFromMarketPlace.mockResolvedValue({
       all_installed: false,
       task_id: 'task-123',
@@ -302,7 +302,7 @@ describe('Install Component (steps/install.tsx)', () => {
     })
 
     it('should not show warning when crew version is compatible', () => {
-      mockConsoleState.langGeniusVersionInfo = { current_version: '2.0.0' }
+      mockConsoleState.crewVersionInfo = { current_version: '2.0.0' }
       mockPluginDeclaration = {
         manifest: { meta: { minimum_crew_version: '1.0.0' } },
       }
@@ -312,7 +312,7 @@ describe('Install Component (steps/install.tsx)', () => {
     })
 
     it('should show warning when crew version is incompatible', () => {
-      mockConsoleState.langGeniusVersionInfo = { current_version: '1.0.0' }
+      mockConsoleState.crewVersionInfo = { current_version: '1.0.0' }
       mockPluginDeclaration = {
         manifest: { meta: { minimum_crew_version: '2.0.0' } },
       }
@@ -769,8 +769,8 @@ describe('Install Component (steps/install.tsx)', () => {
       expect(screen.getByTestId('has-installed')).toHaveTextContent('false')
     })
 
-    it('should handle null current_version in langGeniusVersionInfo', () => {
-      mockConsoleState.langGeniusVersionInfo = { current_version: null as unknown as string }
+    it('should handle null current_version in crewVersionInfo', () => {
+      mockConsoleState.crewVersionInfo = { current_version: null as unknown as string }
       mockPluginDeclaration = {
         manifest: { meta: { minimum_crew_version: '1.0.0' } },
       }

@@ -580,21 +580,21 @@ describe('agent composer store conversions', () => {
       baseConfig: {
         model: {
           model: 'gpt-4.1',
-          model_provider: 'langgenius/openai/openai',
-          plugin_id: 'langgenius/openai',
+          model_provider: 'crew/openai/openai',
+          plugin_id: 'crew/openai',
         },
       },
       formState: defaultAgentSoulConfigFormState,
       currentModel: {
-        provider: 'langgenius/anthropic/anthropic',
+        provider: 'crew/anthropic/anthropic',
         model: 'claude-sonnet-4',
       },
     })
 
     expect(publishConfig.model).toMatchObject({
       model: 'claude-sonnet-4',
-      model_provider: 'langgenius/anthropic/anthropic',
-      plugin_id: 'langgenius/anthropic',
+      model_provider: 'crew/anthropic/anthropic',
+      plugin_id: 'crew/anthropic',
     })
   })
 
@@ -651,7 +651,7 @@ describe('agent composer store conversions', () => {
             retrieval: {
               mode: 'single',
               model: {
-                provider: 'langgenius/openai/openai',
+                provider: 'crew/openai/openai',
                 name: 'gpt-4.1',
                 mode: 'chat',
                 completion_params: { temperature: 0.1 },
@@ -671,7 +671,7 @@ describe('agent composer store conversions', () => {
         retrievalMode: 'single',
         singleRetrievalConfig: {
           model: {
-            provider: 'langgenius/openai/openai',
+            provider: 'crew/openai/openai',
             name: 'gpt-4.1',
             mode: 'chat',
             completion_params: { temperature: 0.1 },
@@ -686,7 +686,7 @@ describe('agent composer store conversions', () => {
           retrieval: {
             mode: 'single',
             model: {
-              provider: 'langgenius/openai/openai',
+              provider: 'crew/openai/openai',
               name: 'gpt-4.1',
               mode: 'chat',
               completion_params: { temperature: 0.1 },
@@ -710,7 +710,7 @@ describe('agent composer store conversions', () => {
             metadata_filtering: {
               mode: 'automatic',
               model_config: {
-                provider: 'langgenius/openai/openai',
+                provider: 'crew/openai/openai',
                 name: 'gpt-4.1-mini',
                 mode: 'chat',
                 completion_params: { temperature: 0.2 },
@@ -729,7 +729,7 @@ describe('agent composer store conversions', () => {
         id: 'retrieval-1',
         metadataFilterMode: 'automatic',
         metadataModelConfig: {
-          provider: 'langgenius/openai/openai',
+          provider: 'crew/openai/openai',
           name: 'gpt-4.1-mini',
           mode: 'chat',
           completion_params: { temperature: 0.2 },
@@ -743,7 +743,7 @@ describe('agent composer store conversions', () => {
           metadata_filtering: {
             mode: 'automatic',
             model_config: {
-              provider: 'langgenius/openai/openai',
+              provider: 'crew/openai/openai',
               name: 'gpt-4.1-mini',
               mode: 'chat',
               completion_params: { temperature: 0.2 },

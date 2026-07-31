@@ -85,7 +85,7 @@ const ModerationSettingModal: FC<ModerationSettingModalProps> = ({ data, onCance
   }
   const { data: codeBasedExtensionList } = useCodeBasedExtensions('moderation')
   const openaiProvider = modelProviders?.data.find(
-    (item) => item.provider === 'langgenius/openai/openai',
+    (item) => item.provider === 'crew/openai/openai',
   )
   const systemOpenaiProviderEnabled = openaiProvider?.system_configuration.enabled
   const systemOpenaiProviderQuota = systemOpenaiProviderEnabled

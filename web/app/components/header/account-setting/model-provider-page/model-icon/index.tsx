@@ -31,7 +31,7 @@ const ModelIcon: FC<ModelIconProps> = ({
 
   if (
     provider?.provider &&
-    ['openai', 'langgenius/openai/openai'].includes(provider.provider) &&
+    ['openai', 'crew/openai/openai'].includes(provider.provider) &&
     modelName?.startsWith('o')
   )
     return (

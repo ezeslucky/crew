@@ -53,9 +53,9 @@ export const correctModelProvider = (provider: string) => {
 
   if (provider.includes('/')) return provider
 
-  if (['google'].includes(provider)) return 'langgenius/gemini/google'
+  if (['google'].includes(provider)) return 'crew/gemini/google'
 
-  return `langgenius/${provider}/${provider}`
+  return `crew/${provider}/${provider}`
 }
 
 export const correctToolProvider = (provider: string, toolInCollectionList?: boolean) => {
@@ -66,15 +66,15 @@ export const correctToolProvider = (provider: string, toolInCollectionList?: boo
   if (provider.includes('/')) return provider
 
   if (['stepfun', 'jina', 'siliconflow', 'gitee_ai'].includes(provider))
-    return `langgenius/${provider}_tool/${provider}`
+    return `crew/${provider}_tool/${provider}`
 
-  return `langgenius/${provider}/${provider}`
+  return `crew/${provider}/${provider}`
 }
 
 export const canFindTool = (providerId: string, oldToolId?: string) => {
   return (
     providerId === oldToolId ||
-    providerId === `langgenius/${oldToolId}/${oldToolId}` ||
-    providerId === `langgenius/${oldToolId}_tool/${oldToolId}`
+    providerId === `crew/${oldToolId}/${oldToolId}` ||
+    providerId === `crew/${oldToolId}_tool/${oldToolId}`
   )
 }

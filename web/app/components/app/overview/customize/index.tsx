@@ -100,7 +100,7 @@ const CustomizeModal: FC<IShareLinkProps> = ({
                   nativeButton={false}
                   render={
                     <a
-                      href={`https://github.com/langgenius/${repository}`}
+                      href={`https://github.com/crew/${repository}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={t(($) => $[`${prefixCustomize}.way1.step1Operation`], {

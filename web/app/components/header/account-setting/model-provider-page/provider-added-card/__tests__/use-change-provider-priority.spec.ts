@@ -67,7 +67,7 @@ vi.mock('../../hooks', () => ({
 
 const createProvider = (overrides: Partial<ModelProvider> = {}): ModelProvider =>
   ({
-    provider: 'langgenius/openai/openai',
+    provider: 'crew/openai/openai',
     configurate_methods: [
       ConfigurationMethodEnum.customizableModel,
       ConfigurationMethodEnum.predefinedModel,
@@ -122,7 +122,7 @@ describe('useChangeProviderPriority', () => {
 
       await waitFor(() => {
         expect(mockChangePreferredProviderType).toHaveBeenCalledWith({
-          params: { provider: 'langgenius/openai/openai' },
+          params: { provider: 'crew/openai/openai' },
           body: { preferred_provider_type: PreferredProviderTypeEnum.custom },
         })
       })
@@ -130,13 +130,13 @@ describe('useChangeProviderPriority', () => {
       expect(mockQueryKey).toHaveBeenCalledWith({
         input: {
           params: {
-            provider: 'langgenius/openai/openai',
+            provider: 'crew/openai/openai',
           },
         },
       })
       expect(mockMutationOptions).toHaveBeenCalled()
       expect(invalidateQueries).toHaveBeenCalledWith({
-        queryKey: ['model-providers', 'models', 'langgenius/openai/openai'],
+        queryKey: ['model-providers', 'models', 'crew/openai/openai'],
         exact: true,
         refetchType: 'none',
       })

@@ -28,7 +28,7 @@ const createMockAppDetail = (mode: string, overrides: Partial<TryAppInfo> = {}):
     },
     model_config: {
       model: {
-        provider: 'langgenius/openai/openai',
+        provider: 'crew/openai/openai',
         name: 'gpt-4',
         mode: 'chat',
       },
@@ -60,7 +60,7 @@ describe('useGetRequirements', () => {
       expect(result.current.requirements).toHaveLength(1)
       expect(result.current.requirements[0]!.name).toBe('openai')
       expect(result.current.requirements[0]!.iconUrl).toBe(
-        'https://marketplace.api/plugins/langgenius/openai/icon',
+        'https://marketplace.api/plugins/crew/openai/icon',
       )
     })
 
@@ -92,7 +92,7 @@ describe('useGetRequirements', () => {
       const appDetail = createMockAppDetail('agent-chat', {
         model_config: {
           model: {
-            provider: 'langgenius/openai/openai',
+            provider: 'crew/openai/openai',
             name: 'gpt-4',
             mode: 'chat',
           },
@@ -101,17 +101,17 @@ describe('useGetRequirements', () => {
             tools: [
               {
                 enabled: true,
-                provider_id: 'langgenius/google_search/google_search',
+                provider_id: 'crew/google_search/google_search',
                 tool_label: 'Google Search',
               },
               {
                 enabled: true,
-                provider_id: 'langgenius/web_scraper/web_scraper',
+                provider_id: 'crew/web_scraper/web_scraper',
                 tool_label: 'Web Scraper',
               },
               {
                 enabled: false,
-                provider_id: 'langgenius/disabled_tool/disabled_tool',
+                provider_id: 'crew/disabled_tool/disabled_tool',
                 tool_label: 'Disabled Tool',
               },
             ],
@@ -135,7 +135,7 @@ describe('useGetRequirements', () => {
       const appDetail = createMockAppDetail('agent-chat', {
         model_config: {
           model: {
-            provider: 'langgenius/openai/openai',
+            provider: 'crew/openai/openai',
             name: 'gpt-4',
             mode: 'chat',
           },
@@ -144,12 +144,12 @@ describe('useGetRequirements', () => {
             tools: [
               {
                 enabled: false,
-                provider_id: 'langgenius/tool1/tool1',
+                provider_id: 'crew/tool1/tool1',
                 tool_label: 'Tool 1',
               },
               {
                 enabled: false,
-                provider_id: 'langgenius/tool2/tool2',
+                provider_id: 'crew/tool2/tool2',
                 tool_label: 'Tool 2',
               },
             ],
@@ -175,7 +175,7 @@ describe('useGetRequirements', () => {
                 data: {
                   type: 'llm',
                   model: {
-                    provider: 'langgenius/openai/openai',
+                    provider: 'crew/openai/openai',
                     name: 'gpt-4',
                   },
                 },
@@ -183,7 +183,7 @@ describe('useGetRequirements', () => {
               {
                 data: {
                   type: 'tool',
-                  provider_id: 'langgenius/google/google',
+                  provider_id: 'crew/google/google',
                   tool_label: 'Google Tool',
                 },
               },
@@ -261,7 +261,7 @@ describe('useGetRequirements', () => {
                 data: {
                   type: 'llm',
                   model: {
-                    provider: 'langgenius/openai/openai',
+                    provider: 'crew/openai/openai',
                     name: 'gpt-4',
                   },
                 },
@@ -296,14 +296,14 @@ describe('useGetRequirements', () => {
               {
                 data: {
                   type: 'tool',
-                  provider_id: 'langgenius/tool1/tool1',
+                  provider_id: 'crew/tool1/tool1',
                   tool_label: 'Tool 1',
                 },
               },
               {
                 data: {
                   type: 'tool',
-                  provider_id: 'langgenius/tool2/tool2',
+                  provider_id: 'crew/tool2/tool2',
                   tool_label: 'Tool 2',
                 },
               },
@@ -331,7 +331,7 @@ describe('useGetRequirements', () => {
                 data: {
                   type: 'llm',
                   model: {
-                    provider: 'langgenius/openai/openai',
+                    provider: 'crew/openai/openai',
                     name: 'gpt-4',
                   },
                 },
@@ -340,7 +340,7 @@ describe('useGetRequirements', () => {
                 data: {
                   type: 'llm',
                   model: {
-                    provider: 'langgenius/openai/openai',
+                    provider: 'crew/openai/openai',
                     name: 'gpt-4',
                   },
                 },
@@ -388,7 +388,7 @@ describe('useGetRequirements', () => {
       const appDetail = createMockAppDetail('chat', {
         model_config: {
           model: {
-            provider: 'langgenius/google/google',
+            provider: 'crew/google/google',
             name: 'gemini-2.0',
             mode: 'chat',
           },
@@ -401,7 +401,7 @@ describe('useGetRequirements', () => {
       const { result } = renderHook(() => useGetRequirements({ appDetail, appId: 'test-app-id' }))
 
       expect(result.current.requirements[0]!.iconUrl).toBe(
-        'https://marketplace.api/plugins/langgenius/gemini/icon',
+        'https://marketplace.api/plugins/crew/gemini/icon',
       )
     })
 
@@ -411,7 +411,7 @@ describe('useGetRequirements', () => {
       const appDetail = createMockAppDetail('agent-chat', {
         model_config: {
           model: {
-            provider: 'langgenius/openai/openai',
+            provider: 'crew/openai/openai',
             name: 'gpt-4',
             mode: 'chat',
           },
@@ -420,7 +420,7 @@ describe('useGetRequirements', () => {
             tools: [
               {
                 enabled: true,
-                provider_id: 'langgenius/jina/jina',
+                provider_id: 'crew/jina/jina',
                 tool_label: 'Jina Search',
               },
             ],
@@ -435,7 +435,7 @@ describe('useGetRequirements', () => {
         (item) => item.name === 'Jina Search',
       )
       expect(toolRequirement?.iconUrl).toBe(
-        'https://marketplace.api/plugins/langgenius/jina_tool/icon',
+        'https://marketplace.api/plugins/crew/jina_tool/icon',
       )
     })
   })

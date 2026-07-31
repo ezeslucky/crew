@@ -10,7 +10,7 @@ import Badge from '@/app/components/base/badge'
 import CrewLogo from '@/app/components/base/logo/crew-logo'
 import EnvNav from '@/app/components/header/env-nav'
 import StepByStepTourMount from '@/app/components/step-by-step-tour/mount'
-import { langGeniusVersionInfoAtom } from '@/context/version-state'
+import { crewVersionInfoAtom } from '@/context/version-state'
 import {
   isCurrentWorkspaceDatasetOperatorAtom,
   isCurrentWorkspaceEditorAtom,
@@ -32,14 +32,14 @@ const WebAppsSection = dynamic(() => import('./components/web-apps-section'), { 
 export function MainNav({ className }: MainNavProps) {
   const { t } = useTranslation()
   const pathname = usePathname()
-  const langGeniusVersionInfo = useAtomValue(langGeniusVersionInfoAtom)
+  const crewVersionInfo = useAtomValue(crewVersionInfoAtom)
   const isCurrentWorkspaceDatasetOperator = useAtomValue(isCurrentWorkspaceDatasetOperatorAtom)
   const isCurrentWorkspaceEditor = useAtomValue(isCurrentWorkspaceEditorAtom)
   const { data: systemFeatures } = useSuspenseQuery(systemFeaturesQueryOptions())
   const agentV2Enabled = isAgentV2Enabled()
   const showEnvTag =
-    langGeniusVersionInfo.current_env === 'TESTING' ||
-    langGeniusVersionInfo.current_env === 'DEVELOPMENT'
+    crewVersionInfo.current_env === 'TESTING' ||
+    crewVersionInfo.current_env === 'DEVELOPMENT'
   const canUseAppDeploy = isCurrentWorkspaceEditor && systemFeatures.enable_app_deploy
 
   const navItems = useMemo<MainNavItem[]>(

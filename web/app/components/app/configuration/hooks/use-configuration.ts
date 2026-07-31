@@ -212,7 +212,7 @@ export const useConfiguration = (): ConfigurationViewModel => {
   const [completionParamsState, doSetCompletionParams] = useState<FormValue>({})
   const [, setTempStop, getTempStop] = useGetState<string[]>([])
   const [modelConfig, doSetModelConfig] = useState<ModelConfig>({
-    provider: 'langgenius/openai/openai',
+    provider: 'crew/openai/openai',
     model_id: 'gpt-3.5-turbo',
     mode: ModelModeType.unset,
     configs: {
@@ -674,7 +674,7 @@ export const useConfiguration = (): ConfigurationViewModel => {
     promptMode,
     isAdvancedMode,
     isAgent,
-    isOpenAI: modelConfig.provider === 'langgenius/openai/openai',
+    isOpenAI: modelConfig.provider === 'crew/openai/openai',
     isFunctionCall,
     collectionList,
     setPromptMode,

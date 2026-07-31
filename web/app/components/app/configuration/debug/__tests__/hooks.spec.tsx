@@ -45,7 +45,7 @@ describe('configuration debug hooks', () => {
         {
           id: 'model-1',
           model: 'gpt-4o',
-          provider: 'langgenius/openai/openai',
+          provider: 'crew/openai/openai',
           parameters: { temperature: 0.7 },
         },
       ])
@@ -62,7 +62,7 @@ describe('configuration debug hooks', () => {
           {
             id: 'model-1',
             model: 'gpt-4o',
-            provider: 'langgenius/openai/openai',
+            provider: 'crew/openai/openai',
             parameters: { temperature: 0.7 },
           },
         ],

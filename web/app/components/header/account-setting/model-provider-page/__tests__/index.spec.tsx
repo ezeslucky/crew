@@ -93,9 +93,9 @@ const saveUpdateSettings = () => {
 const createPluginDeclaration = (
   overrides: Partial<PluginDeclaration> = {},
 ): PluginDeclaration => ({
-  plugin_unique_identifier: 'langgenius/debug-model:1.0.0',
+  plugin_unique_identifier: 'crew/debug-model:1.0.0',
   version: '1.0.0',
-  author: 'langgenius',
+  author: 'crew',
   icon: 'debug-model.png',
   icon_dark: 'debug-model-dark.png',
   name: 'debug-model',
@@ -126,7 +126,7 @@ const createPluginDetail = (overrides: Partial<PluginDetail> = {}): PluginDetail
     ...restOverrides
   } = overrides
   const declaration = overrideDeclaration ?? createPluginDeclaration()
-  const pluginId = overridePluginId ?? 'langgenius/debug-model'
+  const pluginId = overridePluginId ?? 'crew/debug-model'
 
   return {
     id: 'plugin-installation-id',
@@ -577,7 +577,7 @@ describe('ModelProviderPage', () => {
 
   it('should use the model plugin installation list to attach plugin detail to provider cards', () => {
     mockProviders.splice(0, mockProviders.length, {
-      provider: 'langgenius/openai/openai',
+      provider: 'crew/openai/openai',
       label: { en_US: 'OpenAI' },
       custom_configuration: { status: CustomConfigurationStatusEnum.active },
       system_configuration: {
@@ -588,9 +588,9 @@ describe('ModelProviderPage', () => {
     })
     mockInstalledModelPlugins.value = [
       createPluginDetail({
-        plugin_id: 'langgenius/openai',
+        plugin_id: 'crew/openai',
         declaration: createPluginDeclaration({
-          plugin_unique_identifier: 'langgenius/openai:1.0.0',
+          plugin_unique_identifier: 'crew/openai:1.0.0',
           name: 'openai',
           label: { en_US: 'OpenAI Plugin' } as unknown as PluginDeclaration['label'],
         }),
@@ -604,7 +604,7 @@ describe('ModelProviderPage', () => {
     })
     expect(screen.getByTestId('provider-card')).toHaveAttribute(
       'data-plugin-id',
-      'langgenius/openai',
+      'crew/openai',
     )
     expect(screen.queryByText('OpenAI Plugin')).not.toBeInTheDocument()
   })
@@ -612,7 +612,7 @@ describe('ModelProviderPage', () => {
   it('should not render installed model plugins that are not registered as model providers', () => {
     mockInstalledModelPlugins.value = [
       createPluginDetail({
-        plugin_id: 'langgenius/debug-model',
+        plugin_id: 'crew/debug-model',
         declaration: createPluginDeclaration({
           label: { en_US: 'Debug Model' } as unknown as PluginDeclaration['label'],
           description: {
@@ -625,16 +625,16 @@ describe('ModelProviderPage', () => {
     renderModelProviderPage()
 
     expect(screen.queryByText('Debug Model')).not.toBeInTheDocument()
-    expect(screen.queryByText('langgenius/debug-model')).not.toBeInTheDocument()
+    expect(screen.queryByText('crew/debug-model')).not.toBeInTheDocument()
     expect(
-      screen.queryByRole('button', { name: 'plugin actions langgenius/debug-model' }),
+      screen.queryByRole('button', { name: 'plugin actions crew/debug-model' }),
     ).not.toBeInTheDocument()
   })
 
   it('should refresh model providers once when a debugging model plugin is missing from providers', () => {
     mockInstalledModelPlugins.value = [
       createPluginDetail({
-        plugin_id: 'langgenius/debug-model',
+        plugin_id: 'crew/debug-model',
         declaration: createPluginDeclaration({
           label: { en_US: 'Debug Model' } as unknown as PluginDeclaration['label'],
         }),
@@ -648,7 +648,7 @@ describe('ModelProviderPage', () => {
 
   it('should prefer debugging plugin detail when an installed model plugin shares the same plugin id', () => {
     mockProviders.splice(0, mockProviders.length, {
-      provider: 'langgenius/openai/openai',
+      provider: 'crew/openai/openai',
       label: { en_US: 'OpenAI' },
       custom_configuration: { status: CustomConfigurationStatusEnum.active },
       system_configuration: {
@@ -659,18 +659,18 @@ describe('ModelProviderPage', () => {
     })
     mockInstalledModelPlugins.value = [
       createPluginDetail({
-        plugin_id: 'langgenius/openai',
+        plugin_id: 'crew/openai',
         declaration: createPluginDeclaration({
-          plugin_unique_identifier: 'langgenius/openai:debug',
+          plugin_unique_identifier: 'crew/openai:debug',
           name: 'openai',
           label: { en_US: 'OpenAI Debug Plugin' } as unknown as PluginDeclaration['label'],
         }),
         source: PluginSource.debugging,
       }),
       createPluginDetail({
-        plugin_id: 'langgenius/openai',
+        plugin_id: 'crew/openai',
         declaration: createPluginDeclaration({
-          plugin_unique_identifier: 'langgenius/openai:1.0.0',
+          plugin_unique_identifier: 'crew/openai:1.0.0',
           name: 'openai',
           label: { en_US: 'OpenAI Installed Plugin' } as unknown as PluginDeclaration['label'],
         }),
@@ -682,7 +682,7 @@ describe('ModelProviderPage', () => {
 
     expect(screen.getByTestId('provider-card')).toHaveAttribute(
       'data-plugin-id',
-      'langgenius/openai',
+      'crew/openai',
     )
     expect(screen.getByTestId('provider-card')).toHaveAttribute(
       'data-plugin-source',
@@ -833,7 +833,7 @@ describe('ModelProviderPage', () => {
         },
       },
       {
-        provider: 'langgenius/anthropic/anthropic',
+        provider: 'crew/anthropic/anthropic',
         label: { en_US: 'Anthropic Fixed' },
         custom_configuration: { status: CustomConfigurationStatusEnum.active },
         system_configuration: {
@@ -843,7 +843,7 @@ describe('ModelProviderPage', () => {
         },
       },
       {
-        provider: 'langgenius/openai/openai',
+        provider: 'crew/openai/openai',
         label: { en_US: 'OpenAI Fixed' },
         custom_configuration: { status: CustomConfigurationStatusEnum.noConfigure },
         system_configuration: {
@@ -858,8 +858,8 @@ describe('ModelProviderPage', () => {
 
     const renderedProviders = screen.getAllByTestId('provider-card').map((item) => item.textContent)
     expect(renderedProviders).toEqual([
-      'langgenius/openai/openai',
-      'langgenius/anthropic/anthropic',
+      'crew/openai/openai',
+      'crew/anthropic/anthropic',
       'zeta-provider',
     ])
     expect(screen.queryByText('common.modelProvider.toBeConfigured')).not.toBeInTheDocument()
@@ -870,7 +870,7 @@ describe('ModelProviderPage', () => {
       0,
       mockProviders.length,
       {
-        provider: 'langgenius/openai/openai',
+        provider: 'crew/openai/openai',
         label: { en_US: 'OpenAI Fixed' },
         custom_configuration: { status: CustomConfigurationStatusEnum.active },
         system_configuration: {
@@ -890,7 +890,7 @@ describe('ModelProviderPage', () => {
         },
       },
       {
-        provider: 'langgenius/normal-model/normal-model',
+        provider: 'crew/normal-model/normal-model',
         label: { en_US: 'Normal Model' },
         custom_configuration: { status: CustomConfigurationStatusEnum.noConfigure },
         system_configuration: {
@@ -900,7 +900,7 @@ describe('ModelProviderPage', () => {
         },
       },
       {
-        provider: 'langgenius/debug-model/debug-model',
+        provider: 'crew/debug-model/debug-model',
         label: { en_US: 'Debug Model' },
         custom_configuration: { status: CustomConfigurationStatusEnum.noConfigure },
         system_configuration: {
@@ -912,9 +912,9 @@ describe('ModelProviderPage', () => {
     )
     mockInstalledModelPlugins.value = [
       createPluginDetail({
-        plugin_id: 'langgenius/debug-model',
+        plugin_id: 'crew/debug-model',
         declaration: createPluginDeclaration({
-          plugin_unique_identifier: 'langgenius/debug-model:1.0.0',
+          plugin_unique_identifier: 'crew/debug-model:1.0.0',
           name: 'debug-model',
           label: { en_US: 'Debug Model' } as unknown as PluginDeclaration['label'],
         }),
@@ -925,10 +925,10 @@ describe('ModelProviderPage', () => {
 
     const renderedProviders = screen.getAllByTestId('provider-card').map((item) => item.textContent)
     expect(renderedProviders).toEqual([
-      'langgenius/openai/openai',
+      'crew/openai/openai',
       'zeta-provider',
-      'langgenius/debug-model/debug-model',
-      'langgenius/normal-model/normal-model',
+      'crew/debug-model/debug-model',
+      'crew/normal-model/normal-model',
     ])
     expect(screen.getAllByTestId('provider-card')[2]).toHaveAttribute('data-not-configured', 'true')
     expect(screen.getByText('common.modelProvider.toBeConfigured')).toBeInTheDocument()

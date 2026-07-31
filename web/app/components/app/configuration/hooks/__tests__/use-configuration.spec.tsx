@@ -162,7 +162,7 @@ vi.mock('../use-advanced-prompt-config', () => ({
 vi.mock('@/app/components/header/account-setting/model-provider-page/hooks', () => ({
   useModelListAndDefaultModelAndCurrentProviderAndModel: () => ({
     currentModel: { model: 'rerank-1' },
-    currentProvider: { provider: 'langgenius/cohere/cohere' },
+    currentProvider: { provider: 'crew/cohere/cohere' },
   }),
   useTextGenerationCurrentProviderAndModelAndModelList: () => ({
     currentModel: {
@@ -228,7 +228,7 @@ describe('useConfiguration', () => {
           },
         },
         model: {
-          provider: 'langgenius/openai/openai',
+          provider: 'crew/openai/openai',
           name: 'gpt-4o',
           mode: ModelModeType.chat,
           completion_params: { temperature: 0.7 },
@@ -281,12 +281,12 @@ describe('useConfiguration', () => {
         features: ['vision'],
         mode: ModelModeType.chat,
         modelId: 'gpt-4.1',
-        provider: 'langgenius/openai/openai',
+        provider: 'crew/openai/openai',
       })
     })
 
     expect(mockFetchAndMergeValidCompletionParams).toHaveBeenCalledWith(
-      'langgenius/openai/openai',
+      'crew/openai/openai',
       'gpt-4.1',
       { temperature: 0.7 },
       true,
@@ -409,7 +409,7 @@ describe('useConfiguration', () => {
         },
         dataset_configs: { datasets: { datasets: [] } },
         model: {
-          provider: 'langgenius/openai/openai',
+          provider: 'crew/openai/openai',
           name: 'gpt-4o',
           mode: ModelModeType.chat,
           completion_params: { temperature: 0.7 },
@@ -427,7 +427,7 @@ describe('useConfiguration', () => {
           id: 'annotation-1',
           score_threshold: 0.6,
           embedding_model: {
-            embedding_provider_name: 'langgenius/openai/openai',
+            embedding_provider_name: 'crew/openai/openai',
             embedding_model_name: 'text-embedding-3-small',
           },
         },
@@ -531,7 +531,7 @@ describe('useConfiguration', () => {
         },
         dataset_query_variable: 'context',
         model: {
-          provider: 'langgenius/openai/openai',
+          provider: 'crew/openai/openai',
           name: 'gpt-4o',
           mode: ModelModeType.completion,
           completion_params: { temperature: 0.7 },
@@ -583,7 +583,7 @@ describe('useConfiguration', () => {
         enabled: true,
         score_threshold: 0.6,
         embedding_model: {
-          embedding_provider_name: 'langgenius/openai/openai',
+          embedding_provider_name: 'crew/openai/openai',
           embedding_model_name: 'text-embedding-3-small',
         },
       })

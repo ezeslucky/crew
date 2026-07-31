@@ -27,7 +27,7 @@ export const pluginManifestToCardPluginProps = (pluginManifest: PluginDeclaratio
     },
     tags: pluginManifest.tags.map((tag) => ({ name: tag })),
     badges: [],
-    verification: { authorized_category: 'langgenius' },
+    verification: { authorized_category: 'crew' },
     from: 'package',
   }
 }
@@ -58,7 +58,7 @@ export const pluginManifestInMarketToPluginProps = (
     tags: [],
     badges: pluginManifest.badges,
     verification: isEmpty(pluginManifest.verification)
-      ? { authorized_category: 'langgenius' }
+      ? { authorized_category: 'crew' }
       : pluginManifest.verification,
     from: pluginManifest.from,
   }

@@ -130,10 +130,10 @@ describe('auth refresh route', () => {
     ['a protocol-relative URL', '%2F%2Fevil.example'],
     ['a backslash URL', '%2F%5Cevil.example'],
     ['an encoded protocol-relative URL', '%252F%252Fevil.example'],
-    ['an HTTP Dify URL', 'http%3A%2F%2Fdocs.dify.ai%2Fapps'],
-    ['a Dify URL with a non-standard port', 'https%3A%2F%2Fdocs.dify.ai%3A444%2Fapps'],
-    ['a Dify lookalike URL', 'https%3A%2F%2Fdify.ai.evil.example%2Fapps'],
-    ['a URL with userinfo', 'https%3A%2F%2Fuser%3Apass%40dify.ai%2Fapps'],
+    ['an HTTP Crew URL', 'http%3A%2F%2Fdocs.crew.ai%2Fapps'],
+    ['a Crew URL with a non-standard port', 'https%3A%2F%2Fdocs.crew.ai%3A444%2Fapps'],
+    ['a Crew lookalike URL', 'https%3A%2F%2Fcrew.ai.evil.example%2Fapps'],
+    ['a URL with userinfo', 'https%3A%2F%2Fuser%3Apass%40crew.ai%2Fapps'],
   ])('should use the self-hosted fallback for %s', async (_, redirectUrl) => {
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response(null, { status: 401 })))
     const { GET } = await import('../route')
@@ -170,7 +170,7 @@ describe('auth refresh route', () => {
 
     const response = await GET(
       createRequest(
-        'https://cloud.dify.ai/auth/refresh?redirect_url=https%3A%2F%2Fcloud.dify.ai%2F%2Fevil.example',
+        'https://cloud.crew.ai/auth/refresh?redirect_url=https%3A%2F%2Fcloud.crew.ai%2F%2Fevil.example',
         'refresh_token=expired',
       ),
     )
@@ -179,20 +179,20 @@ describe('auth refresh route', () => {
     expect(response.headers.get('location')).toBe('/signin?redirect_url=%2F')
   })
 
-  it('should accept a trusted Dify HTTPS redirect and preserve its query and fragment', async () => {
+  it('should accept a trusted Crew HTTPS redirect and preserve its query and fragment', async () => {
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response(null, { status: 200 })))
     const { GET } = await import('../route')
 
     const response = await GET(
       createRequest(
-        'http://localhost:3000/auth/refresh?redirect_url=https%3A%2F%2Fdocs.eu.dify.ai%2Fapps%3Fcategory%3Dworkflow%23recent',
+        'http://localhost:3000/auth/refresh?redirect_url=https%3A%2F%2Fdocs.eu.crew.ai%2Fapps%3Fcategory%3Dworkflow%23recent',
         'refresh_token=old-refresh',
       ),
     )
 
     expect(response.status).toBe(303)
     expect(response.headers.get('location')).toBe(
-      'https://docs.eu.dify.ai/apps?category=workflow#recent',
+      'https://docs.eu.crew.ai/apps?category=workflow#recent',
     )
   })
 
@@ -251,7 +251,7 @@ describe('auth refresh route', () => {
 
     const response = await GET(
       createRequest(
-        'https://saas.dify.dev/auth/refresh?redirect_url=https%3A%2F%2Fevil.example',
+        'https://saas.crew.dev/auth/refresh?redirect_url=https%3A%2F%2Fevil.example',
         'refresh_token=old-refresh',
       ),
     )
@@ -267,7 +267,7 @@ describe('auth refresh route', () => {
 
     const response = await GET(
       createRequest(
-        'https://saas.dify.dev/auth/refresh?redirect_url=https%3A%2F%2Fevil.example',
+        'https://saas.crew.dev/auth/refresh?redirect_url=https%3A%2F%2Fevil.example',
         'refresh_token=expired',
       ),
     )
@@ -283,7 +283,7 @@ describe('auth refresh route', () => {
 
     const response = await GET(
       createRequest(
-        'https://cloud.dify.ai/auth/refresh?redirect_url=https%3A%2F%2Fcloud.dify.ai%2Fauth%2Frefresh',
+        'https://cloud.crew.ai/auth/refresh?redirect_url=https%3A%2F%2Fcloud.crew.ai%2Fauth%2Frefresh',
         'refresh_token=old-refresh',
       ),
     )

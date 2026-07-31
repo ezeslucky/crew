@@ -75,7 +75,7 @@ describe('Marketplace plugin selector components', () => {
     render(
       <Item
         payload={createPlugin({
-          org: 'LangGenius',
+          org: 'Crew',
           latest_package_identifier: 'plugin-1@2.0.0',
           install_count: 1200,
           label: { en_US: 'Search Plugin', zh_Hans: 'Search Plugin' },
@@ -86,7 +86,7 @@ describe('Marketplace plugin selector components', () => {
 
     expect(screen.getByText('Search Plugin')).toBeInTheDocument()
     expect(screen.getByText('Searches documents')).toBeInTheDocument()
-    expect(screen.getByText('LangGenius')).toBeInTheDocument()
+    expect(screen.getByText('Crew')).toBeInTheDocument()
 
     const installButton = screen.getByRole('button', { name: 'plugin.installAction' })
     const actionButton = screen.getByRole('button', { name: 'marketplace-action' })

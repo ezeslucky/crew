@@ -141,7 +141,7 @@ const setupConsoleState = (overrides: Record<string, unknown> = {}) => {
     isCurrentWorkspaceManager: true,
     workspacePermissionKeys: [],
     userProfile: { email: 'test@example.com' },
-    langGeniusVersionInfo: { current_version: '1.0.0' },
+    crewVersionInfo: { current_version: '1.0.0' },
     ...overrides,
   }
 }

@@ -17,7 +17,7 @@ const mockDefaultModel = vi.hoisted(() => ({
     model: 'gpt-4o-mini',
     model_type: 'llm',
     provider: {
-      provider: 'langgenius/openai/openai',
+      provider: 'crew/openai/openai',
       icon_small: {
         en_US: 'openai',
         zh_Hans: 'openai',
@@ -323,7 +323,7 @@ describe('useCreateInlineAgentBinding', () => {
       model: 'gpt-4o-mini',
       model_type: 'llm',
       provider: {
-        provider: 'langgenius/openai/openai',
+        provider: 'crew/openai/openai',
         icon_small: {
           en_US: 'openai',
           zh_Hans: 'openai',
@@ -378,9 +378,9 @@ describe('useCreateInlineAgentBinding', () => {
               system_prompt: '',
             },
             model: {
-              model_provider: 'langgenius/openai/openai',
+              model_provider: 'crew/openai/openai',
               model: 'gpt-4o-mini',
-              plugin_id: 'langgenius/openai',
+              plugin_id: 'crew/openai',
             },
           },
         },
@@ -616,7 +616,7 @@ describe('useWorkflowInlineAgentConfigureSync', () => {
             schema_version: 1,
           },
           currentModel: {
-            provider: 'langgenius/openai/openai',
+            provider: 'crew/openai/openai',
             model: 'gpt-4o-mini',
           },
           enabled: true,
@@ -659,7 +659,7 @@ describe('useWorkflowInlineAgentConfigureSync', () => {
               system_prompt: 'Workflow inline prompt',
             }),
             model: expect.objectContaining({
-              model_provider: 'langgenius/openai/openai',
+              model_provider: 'crew/openai/openai',
               model: 'gpt-4o-mini',
             }),
           }),
@@ -873,7 +873,7 @@ describe('useWorkflowInlineAgentConfigureSync', () => {
             schema_version: 1,
           },
           currentModel: {
-            provider: 'langgenius/openai/openai',
+            provider: 'crew/openai/openai',
             model: 'gpt-4o-mini',
           },
           enabled: true,
@@ -899,9 +899,9 @@ describe('useWorkflowInlineAgentConfigureSync', () => {
         body: expect.objectContaining({
           agent_soul: expect.objectContaining({
             model: expect.objectContaining({
-              model_provider: 'langgenius/openai/openai',
+              model_provider: 'crew/openai/openai',
               model: 'gpt-4o-mini',
-              plugin_id: 'langgenius/openai',
+              plugin_id: 'crew/openai',
             }),
           }),
         }),

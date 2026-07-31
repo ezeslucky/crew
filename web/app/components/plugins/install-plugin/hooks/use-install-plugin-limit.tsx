@@ -35,14 +35,14 @@ export function pluginInstallLimit(plugin: PluginProps, systemFeatures: GetSyste
   }
   const verification = plugin.verification || {}
   if (!plugin.verification || !plugin.verification.authorized_category)
-    verification.authorized_category = 'langgenius'
+    verification.authorized_category = 'crew'
 
   if (
     systemFeatures.plugin_installation_permission.plugin_installation_scope ===
     InstallationScope.OFFICIAL_ONLY
   ) {
     return {
-      canInstall: verification.authorized_category === 'langgenius',
+      canInstall: verification.authorized_category === 'crew',
     }
   }
   if (
@@ -51,7 +51,7 @@ export function pluginInstallLimit(plugin: PluginProps, systemFeatures: GetSyste
   ) {
     return {
       canInstall:
-        verification.authorized_category === 'langgenius' ||
+        verification.authorized_category === 'crew' ||
         verification.authorized_category === 'partner',
     }
   }

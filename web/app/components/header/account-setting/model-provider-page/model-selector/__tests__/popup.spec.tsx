@@ -196,8 +196,8 @@ vi.mock('../../utils', async () => {
       'test-anthropic': 'TestAnthropic',
     },
     providerKeyToPluginId: {
-      'test-openai': 'langgenius/openai',
-      'test-anthropic': 'langgenius/anthropic',
+      'test-openai': 'crew/openai',
+      'test-anthropic': 'crew/anthropic',
     },
   }
 })
@@ -462,7 +462,7 @@ describe('Popup', () => {
       <PopupHarness
         modelList={[
           makeModel({
-            provider: 'langgenius/openai/openai',
+            provider: 'crew/openai/openai',
             label: { en_US: 'OpenAI', zh_Hans: 'OpenAI' },
             models: [
               makeModelItem({ model: 'gpt-5.4', label: { en_US: 'gpt-5.4', zh_Hans: 'gpt-5.4' } }),
@@ -504,19 +504,19 @@ describe('Popup', () => {
     expect(screen.queryByText('gpt-4.1')).not.toBeInTheDocument()
   })
 
-  it('should not fuzzy match unrelated providers that share the langgenius namespace', () => {
+  it('should not fuzzy match unrelated providers that share the crew namespace', () => {
     renderPopup(
       <PopupHarness
         modelList={[
           makeModel({
-            provider: 'langgenius/openai/openai',
+            provider: 'crew/openai/openai',
             label: { en_US: 'OpenAI', zh_Hans: 'OpenAI' },
             models: [
               makeModelItem({ model: 'gpt-5.4', label: { en_US: 'gpt-5.4', zh_Hans: 'gpt-5.4' } }),
             ],
           }),
           makeModel({
-            provider: 'langgenius/openrouter/openrouter',
+            provider: 'crew/openrouter/openrouter',
             label: { en_US: 'OpenRouter', zh_Hans: 'OpenRouter' },
             models: [
               makeModelItem({
@@ -526,7 +526,7 @@ describe('Popup', () => {
             ],
           }),
           makeModel({
-            provider: 'langgenius/openai_api_compatible/openai_api_compatible',
+            provider: 'crew/openai_api_compatible/openai_api_compatible',
             label: { en_US: 'OpenAI-API-compatible', zh_Hans: 'OpenAI-API-compatible' },
             models: [
               makeModelItem({
@@ -544,26 +544,26 @@ describe('Popup', () => {
       target: { value: 'openai' },
     })
 
-    expect(screen.getByText('langgenius/openai/openai'))!.toBeInTheDocument()
+    expect(screen.getByText('crew/openai/openai'))!.toBeInTheDocument()
     expect(
-      screen.getByText('langgenius/openai_api_compatible/openai_api_compatible'),
+      screen.getByText('crew/openai_api_compatible/openai_api_compatible'),
     )!.toBeInTheDocument()
-    expect(screen.queryByText('langgenius/openrouter/openrouter')).not.toBeInTheDocument()
+    expect(screen.queryByText('crew/openrouter/openrouter')).not.toBeInTheDocument()
   })
 
-  it('should fuzzy match provider names without matching every langgenius provider', () => {
+  it('should fuzzy match provider names without matching every crew provider', () => {
     renderPopup(
       <PopupHarness
         modelList={[
           makeModel({
-            provider: 'langgenius/zhipuai/zhipuai',
+            provider: 'crew/zhipuai/zhipuai',
             label: { en_US: 'ZHIPU AI', zh_Hans: '智谱 AI' },
             models: [
               makeModelItem({ model: 'glm-4.7', label: { en_US: 'GLM-4.7', zh_Hans: 'GLM-4.7' } }),
             ],
           }),
           makeModel({
-            provider: 'langgenius/gemini/google',
+            provider: 'crew/gemini/google',
             label: { en_US: 'Gemini', zh_Hans: 'Gemini' },
             models: [
               makeModelItem({
@@ -573,7 +573,7 @@ describe('Popup', () => {
             ],
           }),
           makeModel({
-            provider: 'langgenius/tongyi/tongyi',
+            provider: 'crew/tongyi/tongyi',
             label: { en_US: 'Tongyi', zh_Hans: '通义' },
             models: [
               makeModelItem({
@@ -591,9 +591,9 @@ describe('Popup', () => {
       target: { value: 'gemni' },
     })
 
-    expect(screen.getByText('langgenius/gemini/google'))!.toBeInTheDocument()
-    expect(screen.queryByText('langgenius/zhipuai/zhipuai')).not.toBeInTheDocument()
-    expect(screen.queryByText('langgenius/tongyi/tongyi')).not.toBeInTheDocument()
+    expect(screen.getByText('crew/gemini/google'))!.toBeInTheDocument()
+    expect(screen.queryByText('crew/zhipuai/zhipuai')).not.toBeInTheDocument()
+    expect(screen.queryByText('crew/tongyi/tongyi')).not.toBeInTheDocument()
   })
 
   it('should match by model provider key when direct props model label does not contain the search text', () => {
@@ -1200,7 +1200,7 @@ describe('Popup', () => {
 
   it('should install plugin when clicking install button', async () => {
     mockMarketplacePlugins.current = [
-      { plugin_id: 'langgenius/openai', latest_package_identifier: 'langgenius/openai:1.0.0' },
+      { plugin_id: 'crew/openai', latest_package_identifier: 'crew/openai:1.0.0' },
     ]
     mockInstallMutateAsync.mockResolvedValue({ all_installed: true, task_id: 'task-1' })
 
@@ -1210,14 +1210,14 @@ describe('Popup', () => {
     fireEvent.click(installButtons[0]!)
 
     await waitFor(() => {
-      expect(mockInstallMutateAsync).toHaveBeenCalledWith('langgenius/openai:1.0.0')
+      expect(mockInstallMutateAsync).toHaveBeenCalledWith('crew/openai:1.0.0')
     })
     expect(mockRefreshPluginList).toHaveBeenCalled()
   })
 
   it('should handle install failure gracefully', async () => {
     mockMarketplacePlugins.current = [
-      { plugin_id: 'langgenius/openai', latest_package_identifier: 'langgenius/openai:1.0.0' },
+      { plugin_id: 'crew/openai', latest_package_identifier: 'crew/openai:1.0.0' },
     ]
     mockInstallMutateAsync.mockRejectedValue(new Error('Install failed'))
 
@@ -1237,7 +1237,7 @@ describe('Popup', () => {
 
   it('should run checkTaskStatus when not all_installed', async () => {
     mockMarketplacePlugins.current = [
-      { plugin_id: 'langgenius/openai', latest_package_identifier: 'langgenius/openai:1.0.0' },
+      { plugin_id: 'crew/openai', latest_package_identifier: 'crew/openai:1.0.0' },
     ]
     mockInstallMutateAsync.mockResolvedValue({ all_installed: false, task_id: 'task-1' })
     mockCheck.mockResolvedValue(undefined)
@@ -1250,7 +1250,7 @@ describe('Popup', () => {
     await waitFor(() => {
       expect(mockCheck).toHaveBeenCalledWith({
         taskId: 'task-1',
-        pluginUniqueIdentifier: 'langgenius/openai:1.0.0',
+        pluginUniqueIdentifier: 'crew/openai:1.0.0',
       })
     })
     expect(mockRefreshPluginList).toHaveBeenCalled()
@@ -1258,7 +1258,7 @@ describe('Popup', () => {
 
   it('should skip install requests when marketplace plugins are still loading', async () => {
     mockMarketplacePlugins.current = [
-      { plugin_id: 'langgenius/openai', latest_package_identifier: 'langgenius/openai:1.0.0' },
+      { plugin_id: 'crew/openai', latest_package_identifier: 'crew/openai:1.0.0' },
     ]
     mockMarketplacePlugins.isLoading = true
 

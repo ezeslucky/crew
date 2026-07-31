@@ -51,7 +51,7 @@ vi.mock('@/context/workspace-state', async () => {
   return createWorkspaceStateModuleMock(() => ({
     isCurrentWorkspaceManager: true,
     isCurrentWorkspaceOwner: false,
-    langGeniusVersionInfo: {
+    crewVersionInfo: {
       current_env: 'CLOUD',
       current_version: '1.0.0',
       latest_version: '1.0.0',
@@ -73,7 +73,7 @@ vi.mock('@/context/permission-state', async () => {
   return createPermissionStateModuleMock(() => ({
     isCurrentWorkspaceManager: true,
     isCurrentWorkspaceOwner: false,
-    langGeniusVersionInfo: {
+    crewVersionInfo: {
       current_env: 'CLOUD',
       current_version: '1.0.0',
       latest_version: '1.0.0',
@@ -95,7 +95,7 @@ vi.mock('@/context/version-state', async () => {
   return createVersionStateModuleMock(() => ({
     isCurrentWorkspaceManager: true,
     isCurrentWorkspaceOwner: false,
-    langGeniusVersionInfo: {
+    crewVersionInfo: {
       current_env: 'CLOUD',
       current_version: '1.0.0',
       latest_version: '1.0.0',
@@ -1098,7 +1098,7 @@ describe('PluginPage Integration', () => {
 
     vi.mocked(fetchManifestFromMarketPlace).mockResolvedValue({
       data: {
-        plugin: { org: 'langgenius', name: 'test-plugin', category: 'unknown' },
+        plugin: { org: 'crew', name: 'test-plugin', category: 'unknown' },
         version: { version: '1.0.0' },
       },
     } as unknown as Awaited<ReturnType<typeof fetchManifestFromMarketPlace>>)

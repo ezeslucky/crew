@@ -6,7 +6,7 @@ import { pluginInstallLimit } from '../use-install-plugin-limit'
 
 const basePlugin = {
   from: 'marketplace' as const,
-  verification: { authorized_category: 'langgenius' },
+  verification: { authorized_category: 'crew' },
 }
 
 describe('pluginInstallLimit', () => {
@@ -32,7 +32,7 @@ describe('pluginInstallLimit', () => {
     expect(pluginInstallLimit(basePlugin as never, features as never).canInstall).toBe(false)
   })
 
-  it('should allow langgenius plugins when scope is OFFICIAL_ONLY', () => {
+  it('should allow crew plugins when scope is OFFICIAL_ONLY', () => {
     const features = {
       plugin_installation_permission: {
         restrict_to_marketplace_only: false,
@@ -102,7 +102,7 @@ describe('pluginInstallLimit', () => {
     expect(pluginInstallLimit(basePlugin as never, features as never).canInstall).toBe(true)
   })
 
-  it('should default to langgenius when no verification info', () => {
+  it('should default to crew when no verification info', () => {
     const features = {
       plugin_installation_permission: {
         restrict_to_marketplace_only: false,
@@ -131,7 +131,7 @@ describe('usePluginInstallLimit', () => {
     const { default: usePluginInstallLimit } = await import('../use-install-plugin-limit')
     const plugin = {
       from: 'marketplace' as const,
-      verification: { authorized_category: 'langgenius' },
+      verification: { authorized_category: 'crew' },
     }
 
     const { result } = renderHook(() => usePluginInstallLimit(plugin as never))
@@ -143,7 +143,7 @@ describe('usePluginInstallLimit', () => {
     const { default: usePluginInstallLimit } = await import('../use-install-plugin-limit')
     const plugin = {
       from: 'marketplace' as const,
-      verification: { authorized_category: 'langgenius' },
+      verification: { authorized_category: 'crew' },
     }
 
     const { result } = renderHook(() => usePluginInstallLimit(plugin as never), {

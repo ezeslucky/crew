@@ -13,7 +13,7 @@ import {
 function candidate(overrides: Partial<CredentialCandidate>): CredentialCandidate {
   return {
     credentialId: 'credential-1',
-    providerId: 'langgenius/openai',
+    providerId: 'crew/openai',
     category: PluginCategory.PLUGIN_CATEGORY_MODEL,
     displayName: 'OpenAI key',
     fromEnterprise: false,
@@ -23,7 +23,7 @@ function candidate(overrides: Partial<CredentialCandidate>): CredentialCandidate
 
 function slot(overrides: Partial<CredentialSlot>): CredentialSlot {
   return {
-    providerId: 'langgenius/openai',
+    providerId: 'crew/openai',
     category: PluginCategory.PLUGIN_CATEGORY_MODEL,
     candidates: [
       candidate({ credentialId: 'credential-1', displayName: 'Primary key' }),
@@ -36,8 +36,8 @@ function slot(overrides: Partial<CredentialSlot>): CredentialSlot {
 
 describe('runtime credential provider names', () => {
   it('should resolve known provider slugs and title-case custom slugs', () => {
-    expect(runtimeCredentialProviderName('langgenius/openai')).toBe('OpenAI')
-    expect(runtimeCredentialProviderName('langgenius/azure_openai')).toBe('Azure OpenAI')
+    expect(runtimeCredentialProviderName('crew/openai')).toBe('OpenAI')
+    expect(runtimeCredentialProviderName('crew/azure_openai')).toBe('Azure OpenAI')
     expect(runtimeCredentialProviderName('custom/my-provider')).toBe('My Provider')
     expect(runtimeCredentialProviderName('/')).toBeUndefined()
   })
@@ -49,23 +49,23 @@ describe('runtime credential selection helpers', () => {
       candidates: [
         candidate({
           credentialId: 'credential-1',
-          providerId: 'langgenius/openai',
-          displayName: 'Production key · langgenius/openai',
+          providerId: 'crew/openai',
+          displayName: 'Production key · crew/openai',
         }),
         candidate({
           credentialId: 'credential-2',
-          providerId: 'langgenius/openai',
-          displayName: 'Backup key (langgenius/openai)',
+          providerId: 'crew/openai',
+          displayName: 'Backup key (crew/openai)',
         }),
         candidate({
           credentialId: 'credential-3',
-          providerId: 'langgenius/openai',
+          providerId: 'crew/openai',
           displayName: '',
         }),
       ],
     })
 
-    expect(runtimeCredentialSlotKey(credentialSlot)).toBe('langgenius/openai:PLUGIN_CATEGORY_MODEL')
+    expect(runtimeCredentialSlotKey(credentialSlot)).toBe('crew/openai:PLUGIN_CATEGORY_MODEL')
     expect(runtimeCredentialCandidateOptions(credentialSlot)).toEqual([
       { value: 'credential-1', label: 'Production key' },
       { value: 'credential-2', label: 'Backup key' },
@@ -75,12 +75,12 @@ describe('runtime credential selection helpers', () => {
 
   it('should prefer valid manual selections before last or only candidates', () => {
     const firstSlot = slot({
-      providerId: 'langgenius/openai',
+      providerId: 'crew/openai',
       lastCredentialId: 'credential-2',
     })
     const secondSlot = slot({
-      providerId: 'langgenius/bedrock',
-      candidates: [candidate({ credentialId: 'bedrock-1', providerId: 'langgenius/bedrock' })],
+      providerId: 'crew/bedrock',
+      candidates: [candidate({ credentialId: 'bedrock-1', providerId: 'crew/bedrock' })],
       lastCredentialId: '',
     })
     const thirdSlot = slot({
@@ -104,8 +104,8 @@ describe('runtime credential selection helpers', () => {
   })
 
   it('should convert selected credentials into deployment payload inputs', () => {
-    const firstSlot = slot({ providerId: 'langgenius/openai' })
-    const secondSlot = slot({ providerId: 'langgenius/bedrock' })
+    const firstSlot = slot({ providerId: 'crew/openai' })
+    const secondSlot = slot({ providerId: 'crew/bedrock' })
 
     expect(hasMissingRequiredRuntimeCredentialBinding(firstSlot)).toBe(true)
     expect(hasMissingRequiredRuntimeCredentialBinding(firstSlot, 'credential-1')).toBe(false)
@@ -115,7 +115,7 @@ describe('runtime credential selection helpers', () => {
       }),
     ).toEqual([
       {
-        providerId: 'langgenius/openai',
+        providerId: 'crew/openai',
         category: PluginCategory.PLUGIN_CATEGORY_MODEL,
         credentialId: 'credential-1',
       },

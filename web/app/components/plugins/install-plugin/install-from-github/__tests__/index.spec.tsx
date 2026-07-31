@@ -1373,7 +1373,7 @@ describe('Install Plugin Utils', () => {
 
       const result = pluginManifestInMarketToPluginProps(manifest)
 
-      expect(result.verification.authorized_category).toBe('langgenius')
+      expect(result.verification.authorized_category).toBe('crew')
       expect(result.verified).toBe(true) // always true in this function
     })
 

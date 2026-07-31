@@ -230,10 +230,10 @@ export default function AccountPage() {
       <div className="mb-6 border border-divider-subtle" />
       <div className="mb-8">
         <div className={titleClassName}>
-          {t(($) => $['account.langGeniusAccount'], { ns: 'common' })}
+          {t(($) => $['account.crewAccount'], { ns: 'common' })}
         </div>
         <div className={descriptionClassName}>
-          {t(($) => $['account.langGeniusAccountTip'], { ns: 'common' })}
+          {t(($) => $['account.crewAccountTip'], { ns: 'common' })}
         </div>
         {!!apps.length && (
           <Collapse

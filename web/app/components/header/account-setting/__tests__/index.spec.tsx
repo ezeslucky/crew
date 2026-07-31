@@ -183,7 +183,7 @@ const baseConsoleState: ConsoleStateFixture = {
   isCurrentWorkspaceEditor: true,
   isCurrentWorkspaceDatasetOperator: false,
   refreshCurrentWorkspace: vi.fn(),
-  langGeniusVersionInfo: {
+  crewVersionInfo: {
     current_env: 'testing',
     current_version: '0.1.0',
     latest_version: '0.1.0',

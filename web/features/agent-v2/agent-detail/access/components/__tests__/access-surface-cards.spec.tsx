@@ -59,7 +59,7 @@ vi.mock('@/context/account-state', async () => {
     userProfile: { id: 'user-1' },
     currentWorkspace: { id: 'workspace-1' },
     workspacePermissionKeys: ['app.acl.edit'],
-    langGeniusVersionInfo: {
+    crewVersionInfo: {
       current_env: 'PRODUCTION',
       current_version: '',
       latest_version: '',
@@ -76,7 +76,7 @@ vi.mock('@/context/workspace-state', async () => {
     userProfile: { id: 'user-1' },
     currentWorkspace: { id: 'workspace-1' },
     workspacePermissionKeys: ['app.acl.edit'],
-    langGeniusVersionInfo: {
+    crewVersionInfo: {
       current_env: 'PRODUCTION',
       current_version: '',
       latest_version: '',
@@ -93,7 +93,7 @@ vi.mock('@/context/permission-state', async () => {
     userProfile: { id: 'user-1' },
     currentWorkspace: { id: 'workspace-1' },
     workspacePermissionKeys: ['app.acl.edit'],
-    langGeniusVersionInfo: {
+    crewVersionInfo: {
       current_env: 'PRODUCTION',
       current_version: '',
       latest_version: '',
@@ -110,7 +110,7 @@ vi.mock('@/context/version-state', async () => {
     userProfile: { id: 'user-1' },
     currentWorkspace: { id: 'workspace-1' },
     workspacePermissionKeys: ['app.acl.edit'],
-    langGeniusVersionInfo: {
+    crewVersionInfo: {
       current_env: 'PRODUCTION',
       current_version: '',
       latest_version: '',
@@ -329,7 +329,7 @@ describe('Agent access surface cards', () => {
         within(dialog).getByRole('button', {
           name: /appOverview\.overview\.appInfo\.customize\.way1\.step1Operation/,
         }),
-      ).toHaveAttribute('href', 'https://github.com/langgenius/webapp-conversation')
+      ).toHaveAttribute('href', 'https://github.com/crew/webapp-conversation')
     })
 
     it('should open the embedded dialog with the Agent web app route', async () => {

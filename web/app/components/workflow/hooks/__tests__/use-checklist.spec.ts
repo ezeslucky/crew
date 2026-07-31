@@ -477,7 +477,7 @@ describe('useChecklist', () => {
         type: BlockEnum.LLM,
         title: 'LLM',
         model: {
-          provider: 'langgenius/openai/openai',
+          provider: 'crew/openai/openai',
         },
       },
     })

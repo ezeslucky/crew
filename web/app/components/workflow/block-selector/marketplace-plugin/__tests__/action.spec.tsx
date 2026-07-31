@@ -50,7 +50,7 @@ const renderComponent = (props?: Partial<ComponentProps<typeof OperationDropdown
       <OperationDropdown
         open={false}
         onOpenChange={vi.fn()}
-        author="langgenius"
+        author="crew"
         name="test-plugin"
         version="1.0.0"
         {...props}
@@ -82,7 +82,7 @@ describe('MarketplaceOperationDropdown', () => {
     await waitFor(() => {
       expect(mockDownloadPlugin).toHaveBeenCalledWith({
         params: {
-          organization: 'langgenius',
+          organization: 'crew',
           pluginName: 'test-plugin',
           version: '1.0.0',
         },
@@ -115,7 +115,7 @@ describe('MarketplaceOperationDropdown', () => {
     await waitFor(() => {
       expect(mockDownloadBlob).toHaveBeenCalledWith({
         data: expect.any(Blob),
-        fileName: 'langgenius-test-plugin_1.0.0.zip',
+        fileName: 'crew-test-plugin_1.0.0.zip',
       })
     })
   })
@@ -125,7 +125,7 @@ describe('MarketplaceOperationDropdown', () => {
 
     expect(screen.getByRole('menuitem', { name: 'common.operation.viewDetails' })).toHaveAttribute(
       'href',
-      'https://marketplace.example/plugins/langgenius/test-plugin',
+      'https://marketplace.example/plugins/crew/test-plugin',
     )
   })
 })

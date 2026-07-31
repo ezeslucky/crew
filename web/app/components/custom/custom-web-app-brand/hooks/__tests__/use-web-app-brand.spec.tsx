@@ -8,7 +8,7 @@ import { createMockProviderContextValue } from '@/__mocks__/provider-context'
 import { getImageUploadErrorMessage, imageUpload } from '@/app/components/base/image-uploader/utils'
 import { defaultPlan } from '@/app/components/billing/config'
 import { Plan } from '@/app/components/billing/type'
-import { initialLangGeniusVersionInfo, initialWorkspaceInfo } from '@/context/app-context-defaults'
+import { initialCrewVersionInfo, initialWorkspaceInfo } from '@/context/app-context-defaults'
 import { useProviderContext } from '@/context/provider-context'
 import { updateCurrentWorkspace } from '@/service/common'
 import { renderHookWithConsoleQuery } from '@/test/console/query-data'
@@ -140,7 +140,7 @@ const createConsoleState = (overrides: Partial<ConsoleStateFixture> = {}): Conso
     isCurrentWorkspaceDatasetOperator: false,
     workspacePermissionKeys: ['customization.manage'],
     refreshCurrentWorkspace: vi.fn(),
-    langGeniusVersionInfo: initialLangGeniusVersionInfo,
+    crewVersionInfo: initialCrewVersionInfo,
     isLoadingCurrentWorkspace: false,
     ...restOverrides,
     currentWorkspace,

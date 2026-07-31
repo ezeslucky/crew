@@ -112,7 +112,7 @@ describe('ModelSelector', () => {
     expect(onSelect).toHaveBeenCalledWith({
       provider: 'openai',
       model: 'gpt-4',
-      plugin_id: 'langgenius/openai',
+      plugin_id: 'crew/openai',
     })
   })
 

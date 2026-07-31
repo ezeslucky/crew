@@ -13,7 +13,7 @@ const createChecklistItem = (overrides: Partial<ChecklistItem> = {}): ChecklistI
   errorMessages: [],
   canNavigate: false,
   isPluginMissing: true,
-  pluginUniqueIdentifier: 'langgenius/test-plugin:1.0.0@sha256',
+  pluginUniqueIdentifier: 'crew/test-plugin:1.0.0@sha256',
   ...overrides,
 })
 
@@ -42,15 +42,15 @@ describe('ChecklistPluginGroup', () => {
     const items: ChecklistItem[] = [
       createChecklistItem({
         id: 'node-1',
-        pluginUniqueIdentifier: 'langgenius/test-plugin:1.0.0@sha256',
+        pluginUniqueIdentifier: 'crew/test-plugin:1.0.0@sha256',
       }),
       createChecklistItem({
         id: 'node-2',
-        pluginUniqueIdentifier: 'langgenius/test-plugin:1.0.0@sha256',
+        pluginUniqueIdentifier: 'crew/test-plugin:1.0.0@sha256',
       }),
       createChecklistItem({
         id: 'node-3',
-        pluginUniqueIdentifier: 'langgenius/another-plugin:2.0.0@sha256',
+        pluginUniqueIdentifier: 'crew/another-plugin:2.0.0@sha256',
       }),
     ]
 
@@ -62,16 +62,16 @@ describe('ChecklistPluginGroup', () => {
       {
         type: 'marketplace',
         value: {
-          marketplace_plugin_unique_identifier: 'langgenius/test-plugin:1.0.0@sha256',
-          plugin_unique_identifier: 'langgenius/test-plugin:1.0.0@sha256',
+          marketplace_plugin_unique_identifier: 'crew/test-plugin:1.0.0@sha256',
+          plugin_unique_identifier: 'crew/test-plugin:1.0.0@sha256',
           version: '1.0.0',
         },
       },
       {
         type: 'marketplace',
         value: {
-          marketplace_plugin_unique_identifier: 'langgenius/another-plugin:2.0.0@sha256',
-          plugin_unique_identifier: 'langgenius/another-plugin:2.0.0@sha256',
+          marketplace_plugin_unique_identifier: 'crew/another-plugin:2.0.0@sha256',
+          plugin_unique_identifier: 'crew/another-plugin:2.0.0@sha256',
           version: '2.0.0',
         },
       },
@@ -90,7 +90,7 @@ describe('ChecklistPluginGroup', () => {
 
   it('should omit the version when the marketplace identifier does not include one', () => {
     renderInPopover([
-      createChecklistItem({ pluginUniqueIdentifier: 'langgenius/test-plugin@sha256' }),
+      createChecklistItem({ pluginUniqueIdentifier: 'crew/test-plugin@sha256' }),
     ])
 
     fireEvent.click(getInstallButton())
@@ -99,8 +99,8 @@ describe('ChecklistPluginGroup', () => {
       {
         type: 'marketplace',
         value: {
-          marketplace_plugin_unique_identifier: 'langgenius/test-plugin@sha256',
-          plugin_unique_identifier: 'langgenius/test-plugin@sha256',
+          marketplace_plugin_unique_identifier: 'crew/test-plugin@sha256',
+          plugin_unique_identifier: 'crew/test-plugin@sha256',
           version: undefined,
         },
       },

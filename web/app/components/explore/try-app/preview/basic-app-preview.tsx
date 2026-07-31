@@ -50,7 +50,7 @@ const DEFAULT_SYSTEM_PARAMETERS: ModelConfig['system_parameters'] = {
 }
 
 const defaultModelConfig: ModelConfig = {
-  provider: 'langgenius/openai/openai',
+  provider: 'crew/openai/openai',
   model_id: 'gpt-3.5-turbo',
   mode: ModelModeType.unset,
   configs: {

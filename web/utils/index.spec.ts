@@ -42,21 +42,21 @@ describe('fetchWithRetry', () => {
 
 describe('provider normalization', () => {
   it('normalizes legacy model providers without changing qualified providers', () => {
-    expect(correctModelProvider('google')).toBe('langgenius/gemini/google')
-    expect(correctModelProvider('openai')).toBe('langgenius/openai/openai')
+    expect(correctModelProvider('google')).toBe('crew/gemini/google')
+    expect(correctModelProvider('openai')).toBe('crew/openai/openai')
     expect(correctModelProvider('company/model')).toBe('company/model')
   })
 
   it('normalizes legacy tool providers without changing catalog providers', () => {
-    expect(correctToolProvider('jina')).toBe('langgenius/jina_tool/jina')
-    expect(correctToolProvider('standard')).toBe('langgenius/standard/standard')
+    expect(correctToolProvider('jina')).toBe('crew/jina_tool/jina')
+    expect(correctToolProvider('standard')).toBe('crew/standard/standard')
     expect(correctToolProvider('catalog-provider', true)).toBe('catalog-provider')
   })
 
   it('matches legacy tool IDs against supported provider formats', () => {
     expect(canFindTool('tool-id', 'tool-id')).toBe(true)
-    expect(canFindTool('langgenius/tool-id/tool-id', 'tool-id')).toBe(true)
-    expect(canFindTool('langgenius/tool-id_tool/tool-id', 'tool-id')).toBe(true)
+    expect(canFindTool('crew/tool-id/tool-id', 'tool-id')).toBe(true)
+    expect(canFindTool('crew/tool-id_tool/tool-id', 'tool-id')).toBe(true)
     expect(canFindTool('provider-a', 'tool-b')).toBe(false)
   })
 })

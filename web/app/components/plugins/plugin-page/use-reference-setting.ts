@@ -8,7 +8,7 @@ import {
   workspacePermissionKeysAtom,
   workspacePermissionKeysLoadingAtom,
 } from '@/context/permission-state'
-import { langGeniusVersionInfoAtom } from '@/context/version-state'
+import { crewVersionInfoAtom } from '@/context/version-state'
 import {
   currentWorkspaceLoadingAtom,
   isCurrentWorkspaceManagerAtom,
@@ -49,7 +49,7 @@ export const usePluginSettingsAccess = () => {
   const isLoadingCurrentWorkspace = useAtomValue(currentWorkspaceLoadingAtom)
   const isLoadingWorkspacePermissionKeys = useAtomValue(workspacePermissionKeysLoadingAtom)
   const workspacePermissionKeys = useAtomValue(workspacePermissionKeysAtom)
-  const langGeniusVersionInfo = useAtomValue(langGeniusVersionInfoAtom)
+  const crewVersionInfo = useAtomValue(crewVersionInfoAtom)
   const { data: rbacEnabled } = useSuspenseQuery({
     ...systemFeaturesQueryOptions(),
     select: (s) => s.rbac_enabled,
@@ -95,7 +95,7 @@ export const usePluginSettingsAccess = () => {
     canManagement: canInstallPlugin,
     canDebugger: canDebugPlugin,
     canSetPermissions,
-    currentCrewVersion: langGeniusVersionInfo?.current_version,
+    currentCrewVersion: crewVersionInfo?.current_version,
     isPermissionLoading:
       permissionQuery.isLoading ||
       permissionQuery.isFetching ||

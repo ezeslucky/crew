@@ -111,20 +111,20 @@ describe('integration routes', () => {
   it('preserves marketplace install query params when redirecting model and data source callbacks', () => {
     expect(
       getIntegrationRouteTargetBySlug(['model-provider', 'plugins'], {
-        'package-ids': '["langgenius/openai"]',
+        'package-ids': '["crew/openai"]',
       }),
     ).toEqual({
       type: 'redirect',
-      destination: '/integrations/model-provider?package-ids=%5B%22langgenius%2Fopenai%22%5D',
+      destination: '/integrations/model-provider?package-ids=%5B%22crew%2Fopenai%22%5D',
     })
     expect(
       getIntegrationRouteTargetBySlug(['data-source', 'plugins'], {
-        'package-ids': '["langgenius/notion_datasource"]',
+        'package-ids': '["crew/notion_datasource"]',
       }),
     ).toEqual({
       type: 'redirect',
       destination:
-        '/integrations/data-source?package-ids=%5B%22langgenius%2Fnotion_datasource%22%5D',
+        '/integrations/data-source?package-ids=%5B%22crew%2Fnotion_datasource%22%5D',
     })
   })
 

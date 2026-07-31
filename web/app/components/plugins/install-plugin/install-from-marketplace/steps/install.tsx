@@ -8,7 +8,7 @@ import * as React from 'react'
 import { useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import useCheckInstalled from '@/app/components/plugins/install-plugin/hooks/use-check-installed'
-import { langGeniusVersionInfoAtom } from '@/context/version-state'
+import { crewVersionInfoAtom } from '@/context/version-state'
 import {
   useInstallPackageFromMarketPlace,
   usePluginDeclarationFromMarketPlace,
@@ -126,15 +126,15 @@ const Installed: FC<Props> = ({
     }
   }
 
-  const langGeniusVersionInfo = useAtomValue(langGeniusVersionInfoAtom)
+  const crewVersionInfo = useAtomValue(crewVersionInfoAtom)
   const { data: pluginDeclaration } = usePluginDeclarationFromMarketPlace(uniqueIdentifier)
   const isCrewVersionCompatible = useMemo(() => {
-    if (!pluginDeclaration || !langGeniusVersionInfo.current_version) return true
+    if (!pluginDeclaration || !crewVersionInfo.current_version) return true
     return isEqualOrLaterThanVersion(
-      langGeniusVersionInfo.current_version,
+      crewVersionInfo.current_version,
       pluginDeclaration?.manifest.meta.minimum_crew_version ?? '0.0.0',
     )
-  }, [langGeniusVersionInfo.current_version, pluginDeclaration])
+  }, [crewVersionInfo.current_version, pluginDeclaration])
 
   const { canInstall, isLoading: isInstallLimitLoading } = useInstallPluginLimit({
     ...payload,

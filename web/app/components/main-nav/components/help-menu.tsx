@@ -39,7 +39,7 @@ import {
 import { useSetStepByStepTourShellMode } from '@/app/components/step-by-step-tour/storage'
 import { IS_CLOUD_EDITION } from '@/config'
 import { useDocLink } from '@/context/i18n'
-import { langGeniusVersionInfoAtom } from '@/context/version-state'
+import { crewVersionInfoAtom } from '@/context/version-state'
 import {
   currentWorkspaceIdAtom,
   currentWorkspaceLoadingAtom,
@@ -88,7 +88,7 @@ const HelpMenu = ({ triggerIcon = defaultTriggerIcon, triggerClassName }: HelpMe
   const docLink = useDocLink()
   const { data: systemFeatures } = useSuspenseQuery(systemFeaturesQueryOptions())
   const isCurrentWorkspaceOwner = useAtomValue(isCurrentWorkspaceOwnerAtom)
-  const langGeniusVersionInfo = useAtomValue(langGeniusVersionInfoAtom)
+  const crewVersionInfo = useAtomValue(crewVersionInfoAtom)
   const currentWorkspaceId = useAtomValue(currentWorkspaceIdAtom)
   const isLoadingCurrentWorkspace = useAtomValue(currentWorkspaceLoadingAtom)
   const learnCrewHidden = useLearnCrewHiddenValue()
@@ -261,7 +261,7 @@ const HelpMenu = ({ triggerIcon = defaultTriggerIcon, triggerClassName }: HelpMe
                         <div className="system-xs-regular text-text-tertiary">
                           {t(($) => $['about.version'], {
                             ns: 'common',
-                            version: langGeniusVersionInfo.current_version,
+                            version: crewVersionInfo.current_version,
                           })}
                         </div>
                       </div>
@@ -276,7 +276,7 @@ const HelpMenu = ({ triggerIcon = defaultTriggerIcon, triggerClassName }: HelpMe
       {aboutVisible && (
         <AccountAbout
           onCancel={() => setAboutVisible(false)}
-          langGeniusVersionInfo={langGeniusVersionInfo}
+          crewVersionInfo={crewVersionInfo}
         />
       )}
     </>

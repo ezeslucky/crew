@@ -154,8 +154,8 @@ const OneMoreStep = () => {
                   <div>
                     <div className="font-medium">{t(($) => $.sendUsMail, { ns: 'login' })}</div>
                     <div className="cursor-pointer text-xs font-medium text-text-accent-secondary">
-                      <a href="mailto:request-invitation@langgenius.ai">
-                        request-invitation@langgenius.ai
+                      <a href="mailto:request-invitation@crew.ai">
+                        request-invitation@crew.ai
                       </a>
                     </div>
                   </div>

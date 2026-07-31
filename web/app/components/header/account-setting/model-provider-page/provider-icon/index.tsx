@@ -21,7 +21,7 @@ const ProviderIcon: FC<ProviderIconProps> = ({ provider, className }) => {
     : ''
   const iconUrl = theme === Theme.dark ? darkIconUrl || lightIconUrl : lightIconUrl
 
-  if (provider.provider === 'langgenius/anthropic/anthropic') {
+  if (provider.provider === 'crew/anthropic/anthropic') {
     return (
       <div className={cn('py-[7px]', className)}>
         {theme === Theme.dark && <AnthropicLight className="h-2.5 w-[90px]" />}
@@ -30,7 +30,7 @@ const ProviderIcon: FC<ProviderIconProps> = ({ provider, className }) => {
     )
   }
 
-  if (provider.provider === 'langgenius/openai/openai') {
+  if (provider.provider === 'crew/openai/openai') {
     return (
       <div className={className}>
         <Openai className="h-6 w-auto text-text-inverted-dimmed" />

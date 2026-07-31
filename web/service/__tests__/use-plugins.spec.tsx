@@ -77,8 +77,8 @@ const createPluginInstallation = (): PluginInstallationItemResponse => ({
   id: 'installation-row-id',
   created_at: '2026-06-01T00:00:00Z',
   updated_at: '2026-06-02T00:00:00Z',
-  plugin_id: 'langgenius/full-declaration',
-  plugin_unique_identifier: 'langgenius/full-declaration:1.0.0@test',
+  plugin_id: 'crew/full-declaration',
+  plugin_unique_identifier: 'crew/full-declaration:1.0.0@test',
   tenant_id: 'tenant-id',
   endpoints_setups: 1,
   endpoints_active: 1,
@@ -87,7 +87,7 @@ const createPluginInstallation = (): PluginInstallationItemResponse => ({
   runtime_type: 'local',
   checksum: 'checksum',
   meta: {
-    repo: 'langgenius/full-declaration',
+    repo: 'crew/full-declaration',
     version: '1.0.0',
     package: 'full-declaration.crewpkg',
   },
@@ -227,7 +227,7 @@ describe('normalizeInstalledPluginDetail', () => {
     expect(detail.name).toBe('full-declaration')
     expect(detail.installation_id).toBe('installation-row-id')
     expect(detail.latest_version).toBe('1.0.0')
-    expect(detail.latest_unique_identifier).toBe('langgenius/full-declaration:1.0.0@test')
+    expect(detail.latest_unique_identifier).toBe('crew/full-declaration:1.0.0@test')
     expect(detail.status).toBe('active')
     expect(detail.declaration.tool?.identity.name).toBe('tool-provider')
     expect(detail.declaration.tool?.credentials_schema[0]?.name).toBe('api_key')
@@ -638,8 +638,8 @@ describe('usePluginTaskList', () => {
       completed_plugins: 0,
       plugins: [
         {
-          plugin_unique_identifier: 'langgenius/gitlab_datasource:0.3.11@test',
-          plugin_id: 'langgenius/gitlab_datasource',
+          plugin_unique_identifier: 'crew/gitlab_datasource:0.3.11@test',
+          plugin_id: 'crew/gitlab_datasource',
           status: TaskStatus.running,
           message: '',
           icon: 'gitlab.png',
@@ -659,7 +659,7 @@ describe('usePluginTaskList', () => {
       result.current.handleInstallTaskStart({
         all_installed: false,
         task_id: 'task-new',
-        plugin_unique_identifier: 'langgenius/gitlab_datasource:0.3.11@test',
+        plugin_unique_identifier: 'crew/gitlab_datasource:0.3.11@test',
         task: startedTask,
       })
     })
@@ -717,7 +717,7 @@ describe('usePluginTaskList', () => {
       result.current.handleInstallTaskStart({
         all_installed: false,
         task_id: 'task-new',
-        plugin_unique_identifier: 'langgenius/gitlab_datasource:0.3.11@test',
+        plugin_unique_identifier: 'crew/gitlab_datasource:0.3.11@test',
         task: {
           id: 'task-new',
           created_at: '2026-06-05T03:34:59.578653Z',
@@ -779,8 +779,8 @@ describe('usePluginTaskList', () => {
       completed_plugins: 0,
       plugins: [
         {
-          plugin_unique_identifier: 'langgenius/gitlab_datasource:0.3.11@test',
-          plugin_id: 'langgenius/gitlab_datasource',
+          plugin_unique_identifier: 'crew/gitlab_datasource:0.3.11@test',
+          plugin_id: 'crew/gitlab_datasource',
           status: TaskStatus.pending,
           message: '',
           icon: 'gitlab.png',

@@ -59,14 +59,14 @@ vi.mock('../../../base/check-task-status', () => ({
 }))
 
 const mockConsoleState = vi.hoisted(() => ({
-  langGeniusVersionInfo: { current_version: '1.0.0' as string | undefined },
+  crewVersionInfo: { current_version: '1.0.0' as string | undefined },
 }))
 
 vi.mock('@/context/version-state', async () => {
   const { createVersionStateModuleMock } = await import('@/test/console/state-fixture')
 
   return createVersionStateModuleMock(() => ({
-    langGeniusVersionInfo: mockConsoleState.langGeniusVersionInfo,
+    crewVersionInfo: mockConsoleState.crewVersionInfo,
   }))
 })
 
@@ -483,7 +483,7 @@ describe('Install', () => {
   // ================================
   describe('Crew Version Compatibility', () => {
     it('should not show warning when crew version is compatible', () => {
-      mockConsoleState.langGeniusVersionInfo.current_version = '1.0.0'
+      mockConsoleState.crewVersionInfo.current_version = '1.0.0'
       const payload = createMockManifest({
         meta: { version: '1.0.0', minimum_crew_version: '0.8.0' },
       })
@@ -494,7 +494,7 @@ describe('Install', () => {
     })
 
     it('should show warning when crew version is incompatible', () => {
-      mockConsoleState.langGeniusVersionInfo.current_version = '1.0.0'
+      mockConsoleState.crewVersionInfo.current_version = '1.0.0'
       const payload = createMockManifest({
         meta: { version: '1.0.0', minimum_crew_version: '2.0.0' },
       })
@@ -505,7 +505,7 @@ describe('Install', () => {
     })
 
     it('should be compatible when minimum_crew_version is undefined', () => {
-      mockConsoleState.langGeniusVersionInfo.current_version = '1.0.0'
+      mockConsoleState.crewVersionInfo.current_version = '1.0.0'
       const payload = createMockManifest({ meta: { version: '1.0.0' } })
 
       render(<Install {...defaultProps} payload={payload} />)
@@ -514,7 +514,7 @@ describe('Install', () => {
     })
 
     it('should be compatible when current_version is empty', () => {
-      mockConsoleState.langGeniusVersionInfo.current_version = ''
+      mockConsoleState.crewVersionInfo.current_version = ''
       const payload = createMockManifest({
         meta: { version: '1.0.0', minimum_crew_version: '2.0.0' },
       })
@@ -526,7 +526,7 @@ describe('Install', () => {
     })
 
     it('should be compatible when current_version is undefined', () => {
-      mockConsoleState.langGeniusVersionInfo.current_version = undefined as unknown as string
+      mockConsoleState.crewVersionInfo.current_version = undefined as unknown as string
       const payload = createMockManifest({
         meta: { version: '1.0.0', minimum_crew_version: '2.0.0' },
       })

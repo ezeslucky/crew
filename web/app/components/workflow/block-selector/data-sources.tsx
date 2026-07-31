@@ -69,7 +69,7 @@ function DataSources({
         plugin_unique_identifier: toolDefaultValue?.plugin_unique_identifier,
       }
       if (
-        toolDefaultValue?.provider_id === 'langgenius/file' &&
+        toolDefaultValue?.provider_id === 'crew/file' &&
         toolDefaultValue?.provider_name === 'file'
       ) {
         defaultValue = {

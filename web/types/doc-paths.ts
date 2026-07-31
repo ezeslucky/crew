@@ -1,7 +1,7 @@
 // GENERATE BY script
 // DON NOT EDIT IT MANUALLY
 //
-// Generated from: https://raw.githubusercontent.com/langgenius/crew-docs/refs/heads/main/docs.json
+// Generated from: https://raw.githubusercontent.com/crew/crew-docs/refs/heads/main/docs.json
 // Generated at: 2026-07-09T10:55:53.618Z
 
 // Language prefixes

@@ -54,7 +54,7 @@ vi.mock('@/app/components/plugins/install-plugin/hooks/use-refresh-plugin-list',
   default: () => ({ refreshPluginList: mockRefreshPluginList }),
 }))
 
-const mockLangGeniusVersionInfo = vi.fn(() => ({
+const mockCrewVersionInfo = vi.fn(() => ({
   current_env: '',
   current_version: '1.0.0',
   latest_version: '',
@@ -64,7 +64,7 @@ const mockLangGeniusVersionInfo = vi.fn(() => ({
   can_auto_update: false,
 }))
 
-const createLangGeniusVersionInfo = (currentVersion: string) => ({
+const createCrewVersionInfo = (currentVersion: string) => ({
   current_env: '',
   current_version: currentVersion,
   latest_version: '',
@@ -77,7 +77,7 @@ const createLangGeniusVersionInfo = (currentVersion: string) => ({
 vi.mock('@/context/version-state', async () => {
   const { createVersionStateModuleMock } = await import('@/test/console/state-fixture')
   return createVersionStateModuleMock(() => ({
-    langGeniusVersionInfo: mockLangGeniusVersionInfo(),
+    crewVersionInfo: mockCrewVersionInfo(),
   }))
 })
 
@@ -184,7 +184,7 @@ describe('PluginItem', () => {
     mockTheme.mockReturnValue('light')
     mockCurrentPluginID.mockReturnValue(undefined)
     mockEnableMarketplace.mockReturnValue(true)
-    mockLangGeniusVersionInfo.mockReturnValue(createLangGeniusVersionInfo('1.0.0'))
+    mockCrewVersionInfo.mockReturnValue(createCrewVersionInfo('1.0.0'))
     mockGetValueFromI18nObject.mockImplementation((obj: Record<string, string>) => obj?.en_US || '')
   })
 
@@ -369,7 +369,7 @@ describe('PluginItem', () => {
   describe('Version Compatibility', () => {
     it('should show warning icon when Crew version is not compatible', () => {
       // Arrange
-      mockLangGeniusVersionInfo.mockReturnValue(createLangGeniusVersionInfo('0.3.0'))
+      mockCrewVersionInfo.mockReturnValue(createCrewVersionInfo('0.3.0'))
       const plugin = createPluginDetail({
         declaration: createPluginDeclaration({
           meta: { version: '1.0.0', minimum_crew_version: '0.5.0' },
@@ -386,7 +386,7 @@ describe('PluginItem', () => {
 
     it('should not show warning when crew version is compatible', () => {
       // Arrange
-      mockLangGeniusVersionInfo.mockReturnValue(createLangGeniusVersionInfo('1.0.0'))
+      mockCrewVersionInfo.mockReturnValue(createCrewVersionInfo('1.0.0'))
       const plugin = createPluginDetail({
         declaration: createPluginDeclaration({
           meta: { version: '1.0.0', minimum_crew_version: '0.5.0' },

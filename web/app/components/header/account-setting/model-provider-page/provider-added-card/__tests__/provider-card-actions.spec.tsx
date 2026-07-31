@@ -118,7 +118,7 @@ const createDetail = (overrides: Partial<PluginDetail> = {}): PluginDetail =>
     latest_version: '2.0.0',
     latest_unique_identifier: 'plugin-id@2.0.0',
     declaration: {
-      author: 'langgenius',
+      author: 'crew',
       name: 'provider-plugin',
     },
     meta: undefined,
@@ -146,7 +146,7 @@ describe('ProviderCardActions', () => {
       isFromGitHub: false,
     }
     mockGetMarketplaceUrl.mockReturnValue(
-      'https://marketplace.example.com/plugins/langgenius/provider-plugin',
+      'https://marketplace.example.com/plugins/crew/provider-plugin',
     )
   })
 
@@ -192,14 +192,14 @@ describe('ProviderCardActions', () => {
   it('should pass the marketplace detail url to the operation dropdown', () => {
     render(<ProviderCardActions detail={createDetail()} />)
 
-    expect(mockGetMarketplaceUrl).toHaveBeenCalledWith('/plugins/langgenius/provider-plugin', {
+    expect(mockGetMarketplaceUrl).toHaveBeenCalledWith('/plugins/crew/provider-plugin', {
       language: 'en-US',
       theme: 'light',
     })
     openActionsMenu()
     expect(
       screen.getByRole('menuitem', { name: 'plugin.detailPanel.operation.viewDetail' }),
-    ).toHaveAttribute('href', 'https://marketplace.example.com/plugins/langgenius/provider-plugin')
+    ).toHaveAttribute('href', 'https://marketplace.example.com/plugins/crew/provider-plugin')
   })
 
   it('should relay the marketplace remove action', () => {
@@ -224,7 +224,7 @@ describe('ProviderCardActions', () => {
         detail={createDetail({
           source: PluginSource.github,
           meta: {
-            repo: 'langgenius/provider-plugin',
+            repo: 'crew/provider-plugin',
             version: '1.0.0',
             package: 'provider-plugin.crewpkg',
           },
@@ -236,7 +236,7 @@ describe('ProviderCardActions', () => {
     openActionsMenu()
     expect(
       screen.getByRole('menuitem', { name: 'plugin.detailPanel.operation.viewDetail' }),
-    ).toHaveAttribute('href', 'https://github.com/langgenius/provider-plugin')
+    ).toHaveAttribute('href', 'https://github.com/crew/provider-plugin')
 
     fireEvent.click(screen.getByRole('button', { name: 'plugin.detailPanel.operation.update' }))
 
@@ -257,7 +257,7 @@ describe('ProviderCardActions', () => {
         detail={createDetail({
           source: PluginSource.github,
           meta: {
-            repo: 'langgenius/provider-plugin',
+            repo: 'crew/provider-plugin',
             version: '1.0.0',
             package: 'provider-plugin.crewpkg',
           },

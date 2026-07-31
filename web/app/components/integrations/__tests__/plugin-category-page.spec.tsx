@@ -245,7 +245,7 @@ describe('PluginCategoryPage', () => {
 
   it('opens the marketplace installer from package id query params', async () => {
     const packageId =
-      'langgenius/telegram_trigger:0.0.6@923a18de89d8cdb7f419d0dff60bf08a8b81b65fef6bf606cf0ce4b0ee56a9ca'
+      'crew/telegram_trigger:0.0.6@923a18de89d8cdb7f419d0dff60bf08a8b81b65fef6bf606cf0ce4b0ee56a9ca'
     mockUsePluginInstallation.mockReturnValue([
       { packageId, bundleInfo: null },
       mockSetInstallState,
@@ -253,7 +253,7 @@ describe('PluginCategoryPage', () => {
     mockFetchManifestFromMarketPlace.mockResolvedValue({
       data: {
         plugin: {
-          org: 'langgenius',
+          org: 'crew',
           name: 'telegram_trigger',
           category: PluginCategoryEnum.trigger,
         },

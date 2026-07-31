@@ -7,7 +7,7 @@ let mockWorkspacePermissionKeys: string[] = []
 vi.mock('@/context/permission-state', async () => {
   const { createPermissionStateModuleMock } = await import('@/test/console/state-fixture')
   return createPermissionStateModuleMock(() => ({
-    langGeniusVersionInfo: {
+    crewVersionInfo: {
       current_env: '',
       current_version: '1.0.0',
       latest_version: '',
@@ -22,7 +22,7 @@ vi.mock('@/context/permission-state', async () => {
 vi.mock('@/context/version-state', async () => {
   const { createVersionStateModuleMock } = await import('@/test/console/state-fixture')
   return createVersionStateModuleMock(() => ({
-    langGeniusVersionInfo: {
+    crewVersionInfo: {
       current_env: '',
       current_version: '1.0.0',
       latest_version: '',

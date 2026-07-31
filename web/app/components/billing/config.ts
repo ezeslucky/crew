@@ -5,7 +5,7 @@ const supportModelProviders = 'OpenAI/Anthropic/Llama2/Azure OpenAI/Hugging Face
 
 export const NUM_INFINITE = -1
 export const contactSalesUrl = 'https://vikgc6bnu1s.typeform.com/crew-business'
-export const getStartedWithCommunityUrl = 'https://github.com/langgenius/crew'
+export const getStartedWithCommunityUrl = 'https://github.com/crew/crew'
 export const getWithPremiumUrl = 'https://aws.amazon.com/marketplace/pp/prodview-t22mebxzwjhu6'
 
 export const ALL_PLANS: Record<BasicPlan, PlanInfo> = {

@@ -1,4 +1,4 @@
-import type { LangGeniusVersionInfo } from '@/context/app-context-types'
+import type { CrewVersionInfo } from '@/context/app-context-types'
 import { fireEvent, screen } from '@testing-library/react'
 import { renderWithConsoleQuery } from '@/test/console/query-data'
 import AccountAbout from '../index'
@@ -15,7 +15,7 @@ vi.mock('@/config', async (importOriginal) => {
 })
 
 describe('AccountAbout', () => {
-  const mockVersionInfo: LangGeniusVersionInfo = {
+  const mockVersionInfo: CrewVersionInfo = {
     current_version: '0.6.0',
     latest_version: '0.6.0',
     release_notes: 'https://github.com/ezeslucky/crew/releases/tag/0.6.0',
@@ -39,7 +39,7 @@ describe('AccountAbout', () => {
   describe('Rendering', () => {
     it('should render correctly with version information', () => {
       renderWithConsoleQuery(
-        <AccountAbout langGeniusVersionInfo={mockVersionInfo} onCancel={mockOnCancel} />,
+        <AccountAbout crewVersionInfo={mockVersionInfo} onCancel={mockOnCancel} />,
         {
           systemFeatures: { branding: { enabled: false } },
         },
@@ -51,7 +51,7 @@ describe('AccountAbout', () => {
 
     it('should render branding logo if enabled', () => {
       renderWithConsoleQuery(
-        <AccountAbout langGeniusVersionInfo={mockVersionInfo} onCancel={mockOnCancel} />,
+        <AccountAbout crewVersionInfo={mockVersionInfo} onCancel={mockOnCancel} />,
         {
           systemFeatures: { branding: { enabled: true, workspace_logo: 'custom-logo.png' } },
         },
@@ -66,7 +66,7 @@ describe('AccountAbout', () => {
   describe('Version Logic', () => {
     it('should show "Latest Available" when current version equals latest', () => {
       renderWithConsoleQuery(
-        <AccountAbout langGeniusVersionInfo={mockVersionInfo} onCancel={mockOnCancel} />,
+        <AccountAbout crewVersionInfo={mockVersionInfo} onCancel={mockOnCancel} />,
       )
 
       expect(screen.getByText(/about.latestAvailable/)).toBeInTheDocument()
@@ -76,7 +76,7 @@ describe('AccountAbout', () => {
       const behindVersionInfo = { ...mockVersionInfo, latest_version: '0.7.0' }
 
       renderWithConsoleQuery(
-        <AccountAbout langGeniusVersionInfo={behindVersionInfo} onCancel={mockOnCancel} />,
+        <AccountAbout crewVersionInfo={behindVersionInfo} onCancel={mockOnCancel} />,
       )
 
       expect(screen.getByText(/about.nowAvailable/)).toBeInTheDocument()
@@ -89,7 +89,7 @@ describe('AccountAbout', () => {
       mockIsCEEdition = true
 
       renderWithConsoleQuery(
-        <AccountAbout langGeniusVersionInfo={mockVersionInfo} onCancel={mockOnCancel} />,
+        <AccountAbout crewVersionInfo={mockVersionInfo} onCancel={mockOnCancel} />,
       )
 
       expect(screen.getByText(/Open Source License/)).toBeInTheDocument()
@@ -100,7 +100,7 @@ describe('AccountAbout', () => {
       const behindVersionInfo = { ...mockVersionInfo, latest_version: '0.7.0' }
 
       renderWithConsoleQuery(
-        <AccountAbout langGeniusVersionInfo={behindVersionInfo} onCancel={mockOnCancel} />,
+        <AccountAbout crewVersionInfo={behindVersionInfo} onCancel={mockOnCancel} />,
       )
 
       expect(screen.queryByText(/about.updateNow/)).not.toBeInTheDocument()
@@ -110,7 +110,7 @@ describe('AccountAbout', () => {
   describe('User Interactions', () => {
     it('should call onCancel when close button is clicked', () => {
       renderWithConsoleQuery(
-        <AccountAbout langGeniusVersionInfo={mockVersionInfo} onCancel={mockOnCancel} />,
+        <AccountAbout crewVersionInfo={mockVersionInfo} onCancel={mockOnCancel} />,
       )
 
       fireEvent.click(screen.getByRole('button', { name: 'common.operation.close' }))

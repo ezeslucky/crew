@@ -12,7 +12,7 @@ import { IS_CLOUD_EDITION, SUPPORT_EMAIL_ADDRESS, ZENDESK_WIDGET_KEY } from '@/c
 import { userProfileAtom } from '@/context/account-state'
 import { useModalContext } from '@/context/modal-context'
 import { useProviderContext } from '@/context/provider-context'
-import { langGeniusVersionInfoAtom } from '@/context/version-state'
+import { crewVersionInfoAtom } from '@/context/version-state'
 
 type SupportMenuProps = {
   onContactUsClick?: () => void
@@ -22,7 +22,7 @@ export default function SupportMenu({ onContactUsClick }: SupportMenuProps) {
   const { t } = useTranslation()
   const { enableBilling, plan } = useProviderContext()
   const userProfile = useAtomValue(userProfileAtom)
-  const langGeniusVersionInfo = useAtomValue(langGeniusVersionInfoAtom)
+  const crewVersionInfo = useAtomValue(crewVersionInfoAtom)
   const { setShowPricingModal } = useModalContext()
   const hasDedicatedChannel = plan.type !== Plan.sandbox || Boolean(SUPPORT_EMAIL_ADDRESS.trim())
   const shouldShowUpgradeContact =
@@ -78,7 +78,7 @@ export default function SupportMenu({ onContactUsClick }: SupportMenuProps) {
           href={mailToSupport(
             userProfile.email,
             plan.type,
-            langGeniusVersionInfo?.current_version,
+            crewVersionInfo?.current_version,
             SUPPORT_EMAIL_ADDRESS,
           )}
           rel="noopener noreferrer"

@@ -11,7 +11,7 @@ import { Plan } from '@/app/components/billing/type'
 import { mailToSupport } from '@/app/components/header/utils/util'
 import { userProfileEmailAtom } from '@/context/account-state'
 import { useProviderContext } from '@/context/provider-context'
-import { langGeniusCurrentVersionAtom } from '@/context/version-state'
+import { crewCurrentVersionAtom } from '@/context/version-state'
 import UpgradeBtn from '../upgrade-btn'
 import s from './style.module.css'
 
@@ -19,7 +19,7 @@ const AppsFull: FC<{ loc: string; className?: string }> = ({ loc, className }) =
   const { t } = useTranslation()
   const { plan } = useProviderContext()
   const userProfileEmail = useAtomValue(userProfileEmailAtom)
-  const currentVersion = useAtomValue(langGeniusCurrentVersionAtom)
+  const currentVersion = useAtomValue(crewCurrentVersionAtom)
   const isTeam = plan.type === Plan.team
   const usage = plan.usage.buildApps
   const total = plan.total.buildApps

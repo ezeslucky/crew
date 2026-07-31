@@ -20,7 +20,7 @@ import { userProfileAtom } from '@/context/account-state'
 import { useDocLink } from '@/context/i18n'
 import { useModalContext } from '@/context/modal-context'
 import { useProviderContext } from '@/context/provider-context'
-import { langGeniusVersionInfoAtom } from '@/context/version-state'
+import { crewVersionInfoAtom } from '@/context/version-state'
 import { isCurrentWorkspaceOwnerAtom } from '@/context/workspace-state'
 import { env } from '@/env'
 import { systemFeaturesQueryOptions } from '@/features/system-features/client'
@@ -112,7 +112,7 @@ export function DefaultMenuContent({
   const { t } = useTranslation()
   const docLink = useDocLink()
   const userProfile = useAtomValue(userProfileAtom)
-  const langGeniusVersionInfo = useAtomValue(langGeniusVersionInfoAtom)
+  const crewVersionInfo = useAtomValue(crewVersionInfoAtom)
   const isCurrentWorkspaceOwner = useAtomValue(isCurrentWorkspaceOwnerAtom)
   const { isEducationAccount } = useProviderContext()
   const { setShowAccountSettingModal } = useModalContext()
@@ -191,12 +191,12 @@ export function DefaultMenuContent({
                 trailing={
                   <div className="flex shrink-0 items-center">
                     <div className="mr-2 system-xs-regular text-text-tertiary">
-                      {langGeniusVersionInfo.current_version}
+                      {crewVersionInfo.current_version}
                     </div>
                     <StatusDot
                       status={
-                        langGeniusVersionInfo.current_version ===
-                        langGeniusVersionInfo.latest_version
+                        crewVersionInfo.current_version ===
+                        crewVersionInfo.latest_version
                           ? 'success'
                           : 'warning'
                       }

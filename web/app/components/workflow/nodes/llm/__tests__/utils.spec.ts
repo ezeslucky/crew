@@ -11,7 +11,7 @@ describe('llm utils', () => {
     it('returns provider-plugin-unavailable when the provider plugin is not installed', () => {
       expect(
         getLLMModelIssue({
-          modelProvider: 'langgenius/openai/gpt-4.1',
+          modelProvider: 'crew/openai/gpt-4.1',
           isModelProviderInstalled: false,
         }),
       ).toBe(LLMModelIssueCode.providerPluginUnavailable)
@@ -20,7 +20,7 @@ describe('llm utils', () => {
     it('returns null when the provider is present and installed', () => {
       expect(
         getLLMModelIssue({
-          modelProvider: 'langgenius/openai/gpt-4.1',
+          modelProvider: 'crew/openai/gpt-4.1',
           isModelProviderInstalled: true,
         }),
       ).toBeNull()
@@ -34,13 +34,13 @@ describe('llm utils', () => {
 
     it('matches installed plugin ids using the provider plugin prefix', () => {
       expect(
-        isLLMModelProviderInstalled('langgenius/openai/gpt-4.1', new Set(['langgenius/openai'])),
+        isLLMModelProviderInstalled('crew/openai/gpt-4.1', new Set(['crew/openai'])),
       ).toBe(true)
     })
 
     it('returns false when the provider plugin id is not installed', () => {
       expect(
-        isLLMModelProviderInstalled('langgenius/openai/gpt-4.1', new Set(['langgenius/anthropic'])),
+        isLLMModelProviderInstalled('crew/openai/gpt-4.1', new Set(['crew/anthropic'])),
       ).toBe(false)
     })
   })

@@ -1,8 +1,8 @@
 import type { GetVersionResponse } from '@crew/contracts/api/console/version/types.gen'
 import type { PostWorkspacesCurrentResponse } from '@crew/contracts/api/console/workspaces/types.gen'
-import type { LangGeniusVersionInfo } from './app-context-types'
+import type { CrewVersionInfo } from './app-context-types'
 import type { ICurrentWorkspace } from '@/models/common'
-import { initialLangGeniusVersionInfo, initialWorkspaceInfo } from './app-context-defaults'
+import { initialCrewVersionInfo, initialWorkspaceInfo } from './app-context-defaults'
 
 const workspaceRoles = new Set<ICurrentWorkspace['role']>([
   'owner',
@@ -73,14 +73,14 @@ export function getWorkspaceRoleFlags(currentWorkspace: ICurrentWorkspace): Work
   }
 }
 
-export function getLangGeniusVersionInfo({
+export function getCrewVersionInfo({
   meta,
   versionData,
 }: {
   meta: ProfileMeta
   versionData?: GetVersionResponse
-}): LangGeniusVersionInfo {
-  if (!meta.currentVersion || !versionData) return initialLangGeniusVersionInfo
+}): CrewVersionInfo {
+  if (!meta.currentVersion || !versionData) return initialCrewVersionInfo
 
   return {
     ...versionData,

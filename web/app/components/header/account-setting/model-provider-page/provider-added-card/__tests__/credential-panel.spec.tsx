@@ -124,7 +124,7 @@ vi.mock('@/app/components/base/icons/src/vender/line/alertsAndFeedback/Warning',
 
 const createProvider = (overrides: Partial<ModelProvider> = {}): ModelProvider =>
   ({
-    provider: 'langgenius/openai/openai',
+    provider: 'crew/openai/openai',
     provider_credential_schema: { credential_form_schemas: [] },
     custom_configuration: {
       status: CustomConfigurationStatusEnum.active,
@@ -141,7 +141,7 @@ const createProvider = (overrides: Partial<ModelProvider> = {}): ModelProvider =
 
 const renderWithQueryClient = (provider: ModelProvider) => {
   return renderWithConsoleQuery(<CredentialPanel provider={provider} />, {
-    trialModels: ['langgenius/openai/openai'],
+    trialModels: ['crew/openai/openai'],
   })
 }
 
@@ -405,7 +405,7 @@ describe('CredentialPanel', () => {
 
       await waitFor(() => {
         expect(mockChangePriorityFn.mock.calls[0]?.[0]).toEqual({
-          params: { provider: 'langgenius/openai/openai' },
+          params: { provider: 'crew/openai/openai' },
           body: { preferred_provider_type: 'custom' },
         })
       })

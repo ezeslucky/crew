@@ -69,7 +69,7 @@ const getLabelSearchValues = (label: TypeWithI18N, language: string) => {
 }
 
 const getProviderKeySearchValues = (provider: string) => {
-  const keys = provider.split('/').filter((part) => part && part !== 'langgenius')
+  const keys = provider.split('/').filter((part) => part && part !== 'crew')
 
   return Array.from(new Set([...keys, ...keys.map(normalizeModelSearchValue)]))
 }

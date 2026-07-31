@@ -118,7 +118,7 @@ function release(overrides: Partial<Release> = {}): Release {
 function credentialCandidate(overrides: Partial<CredentialCandidate> = {}): CredentialCandidate {
   return {
     credentialId: 'credential-1',
-    providerId: 'langgenius/openai',
+    providerId: 'crew/openai',
     category: PluginCategory.PLUGIN_CATEGORY_MODEL,
     displayName: 'Primary key',
     fromEnterprise: false,
@@ -128,7 +128,7 @@ function credentialCandidate(overrides: Partial<CredentialCandidate> = {}): Cred
 
 function credentialSlot(overrides: Partial<CredentialSlot> = {}): CredentialSlot {
   return {
-    providerId: 'langgenius/openai',
+    providerId: 'crew/openai',
     category: PluginCategory.PLUGIN_CATEGORY_MODEL,
     candidates: [
       credentialCandidate({ credentialId: 'credential-1' }),
@@ -277,7 +277,7 @@ describe('deploy drawer state', () => {
 
     store.set(
       state.selectDeployBindingAtom,
-      'langgenius/openai:PLUGIN_CATEGORY_MODEL',
+      'crew/openai:PLUGIN_CATEGORY_MODEL',
       'credential-1',
     )
     store.set(state.setDeployEnvVarAtom, 'API_KEY', {
@@ -287,7 +287,7 @@ describe('deploy drawer state', () => {
     store.set(state.showDeployValidationErrorsAtom)
 
     expect(store.get(state.deploySelectedBindingsAtom)).toEqual({
-      'langgenius/openai:PLUGIN_CATEGORY_MODEL': 'credential-1',
+      'crew/openai:PLUGIN_CATEGORY_MODEL': 'credential-1',
     })
     expect(store.get(state.deployEnvVarValuesAtom)).toEqual({
       API_KEY: {
@@ -336,7 +336,7 @@ describe('deploy drawer state', () => {
       },
     ])
     expect(store.get(state.deploySelectedBindingsAtom)).toEqual({
-      'langgenius/openai:PLUGIN_CATEGORY_MODEL': 'credential-2',
+      'crew/openai:PLUGIN_CATEGORY_MODEL': 'credential-2',
     })
     expect(store.get(state.canAttemptDeployAtom)).toBe(true)
     expect(store.get(state.canSubmitDeployAtom)).toBe(true)
@@ -415,7 +415,7 @@ describe('deploy drawer state', () => {
             releaseId: 'release-2',
             credentials: [
               {
-                providerId: 'langgenius/openai',
+                providerId: 'crew/openai',
                 category: PluginCategory.PLUGIN_CATEGORY_MODEL,
                 credentialId: 'credential-1',
               },

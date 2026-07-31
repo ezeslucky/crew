@@ -17,10 +17,10 @@ let mockWorkspaceData:
   next_credit_reset_date: 1735603200,
 }
 let mockWorkspaceIsPending = false
-let mockTrialModels: string[] | undefined = ['langgenius/openai/openai']
+let mockTrialModels: string[] | undefined = ['crew/openai/openai']
 let mockPlugins = [
   {
-    plugin_id: 'langgenius/openai',
+    plugin_id: 'crew/openai',
     latest_package_identifier: 'openai@1.0.0',
   },
 ]
@@ -99,7 +99,7 @@ vi.mock('@/app/components/plugins/install-plugin/install-from-marketplace', () =
 describe('QuotaPanel', () => {
   const mockProviders = [
     {
-      provider: 'langgenius/openai/openai',
+      provider: 'crew/openai/openai',
       preferred_provider_type: 'custom',
       custom_configuration: { available_credentials: [{ id: '1' }] },
     },
@@ -113,8 +113,8 @@ describe('QuotaPanel', () => {
       next_credit_reset_date: 1735603200,
     }
     mockWorkspaceIsPending = false
-    mockTrialModels = ['langgenius/openai/openai']
-    mockPlugins = [{ plugin_id: 'langgenius/openai', latest_package_identifier: 'openai@1.0.0' }]
+    mockTrialModels = ['crew/openai/openai']
+    mockPlugins = [{ plugin_id: 'crew/openai', latest_package_identifier: 'openai@1.0.0' }]
   })
 
   it('should render loading state', () => {
@@ -212,7 +212,7 @@ describe('QuotaPanel', () => {
         providers={
           [
             {
-              provider: 'langgenius/openai/openai',
+              provider: 'crew/openai/openai',
               preferred_provider_type: 'system',
               custom_configuration: { available_credentials: [] },
             },

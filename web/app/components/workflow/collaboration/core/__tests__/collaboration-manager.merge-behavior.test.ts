@@ -114,7 +114,7 @@ const createLLMNode = (templates: PromptTemplateItem[]): Node<LLMNodeData> => ({
     model: {
       mode: 'chat',
       name: 'gemini-2.5-pro',
-      provider: 'langgenius/gemini/google',
+      provider: 'crew/gemini/google',
       completion_params: {
         temperature: 0.7,
       },

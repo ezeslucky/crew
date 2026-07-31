@@ -73,7 +73,7 @@ vi.mock('@/config', () => ({
       zh_Hans: '输入序列并按 Tab 键',
     },
   },
-  PROVIDER_WITH_PRESET_TONE: ['langgenius/openai/openai', 'langgenius/azure_openai/azure_openai'],
+  PROVIDER_WITH_PRESET_TONE: ['crew/openai/openai', 'crew/azure_openai/azure_openai'],
 }))
 
 // Mock PresetsParameter component
@@ -225,7 +225,7 @@ const createDefaultProps = (
   }> = {},
 ) => ({
   isAdvancedMode: false,
-  provider: 'langgenius/openai/openai',
+  provider: 'crew/openai/openai',
   modelId: 'gpt-4',
   completionParams: {},
   onCompletionParamsChange: vi.fn(),
@@ -302,7 +302,7 @@ describe('LLMParamsPanel', () => {
         data: [createParameterRule({ name: 'temperature' })],
         isPending: false,
       })
-      const props = createDefaultProps({ provider: 'langgenius/openai/openai' })
+      const props = createDefaultProps({ provider: 'crew/openai/openai' })
 
       // Act
       render(<LLMParamsPanel {...props} />)
@@ -317,7 +317,7 @@ describe('LLMParamsPanel', () => {
         data: [createParameterRule({ name: 'temperature' })],
         isPending: false,
       })
-      const props = createDefaultProps({ provider: 'langgenius/azure_openai/azure_openai' })
+      const props = createDefaultProps({ provider: 'crew/azure_openai/azure_openai' })
 
       // Act
       render(<LLMParamsPanel {...props} />)
@@ -332,7 +332,7 @@ describe('LLMParamsPanel', () => {
         data: [createParameterRule({ name: 'max_tokens', type: 'int' })],
         isPending: false,
       })
-      const props = createDefaultProps({ provider: 'langgenius/openai/openai' })
+      const props = createDefaultProps({ provider: 'crew/openai/openai' })
 
       // Act
       render(<LLMParamsPanel {...props} />)
@@ -490,7 +490,7 @@ describe('LLMParamsPanel', () => {
           isPending: false,
         })
         const props = createDefaultProps({
-          provider: 'langgenius/openai/openai',
+          provider: 'crew/openai/openai',
           onCompletionParamsChange,
           completionParams: { existing: 'value' },
         })
@@ -522,7 +522,7 @@ describe('LLMParamsPanel', () => {
           isPending: false,
         })
         const props = createDefaultProps({
-          provider: 'langgenius/openai/openai',
+          provider: 'crew/openai/openai',
           onCompletionParamsChange,
           completionParams: {},
         })
@@ -553,7 +553,7 @@ describe('LLMParamsPanel', () => {
           isPending: false,
         })
         const props = createDefaultProps({
-          provider: 'langgenius/openai/openai',
+          provider: 'crew/openai/openai',
           onCompletionParamsChange,
           completionParams: {},
         })
@@ -579,7 +579,7 @@ describe('LLMParamsPanel', () => {
           isPending: false,
         })
         const props = createDefaultProps({
-          provider: 'langgenius/openai/openai',
+          provider: 'crew/openai/openai',
           onCompletionParamsChange,
           completionParams: { existing: 'value' },
         })
@@ -600,7 +600,7 @@ describe('LLMParamsPanel', () => {
           isPending: false,
         })
         const props = createDefaultProps({
-          provider: 'langgenius/openai/openai',
+          provider: 'crew/openai/openai',
           onCompletionParamsChange,
           completionParams: { existing: 'value' },
         })

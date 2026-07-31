@@ -4,8 +4,8 @@ import { atom } from 'jotai'
 import { atomWithQuery } from 'jotai-tanstack-query'
 import { consoleQuery } from '@/service/client'
 import { accountProfileMetaAtom } from './account-state'
-import { initialLangGeniusVersionInfo } from './app-context-defaults'
-import { getLangGeniusVersionInfo } from './app-context-normalizers'
+import { initialCrewVersionInfo } from './app-context-defaults'
+import { getCrewVersionInfo } from './app-context-normalizers'
 import { systemFeaturesAtom } from './system-features-state'
 
 const versionQueryAtom = atomWithQuery((get) => {
@@ -23,18 +23,18 @@ const versionQueryAtom = atomWithQuery((get) => {
   })
 })
 
-export const langGeniusVersionInfoAtom = atom((get) => {
+export const CrewVersionInfoAtom = atom((get) => {
   const meta = get(accountProfileMetaAtom)
   const versionData = get(versionQueryAtom).data
 
-  if (!versionData) return initialLangGeniusVersionInfo
+  if (!versionData) return initialCrewVersionInfo
 
-  return getLangGeniusVersionInfo({
+  return getCrewVersionInfo({
     meta,
     versionData,
   })
 })
 
-export const langGeniusCurrentVersionAtom = atom((get) => {
-  return get(langGeniusVersionInfoAtom).current_version
+export const crewCurrentVersionAtom = atom((get) => {
+  return get(crewVersionInfoAtom).current_version
 })

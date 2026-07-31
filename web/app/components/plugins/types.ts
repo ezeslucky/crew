@@ -191,7 +191,7 @@ export type PluginManifestInMarket = {
   install_count: number
   badges: string[] | null
   verification: {
-    authorized_category: 'langgenius' | 'partner' | 'community'
+    authorized_category: 'crew' | 'partner' | 'community'
   }
   from: Dependency['type']
 }
@@ -258,7 +258,7 @@ export type Plugin = {
   tags: { name: string }[]
   badges: string[] | null
   verification: {
-    authorized_category: 'langgenius' | 'partner' | 'community'
+    authorized_category: 'crew' | 'partner' | 'community'
   }
   from: Dependency['type']
 }

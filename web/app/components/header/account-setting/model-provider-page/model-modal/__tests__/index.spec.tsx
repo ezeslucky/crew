@@ -268,7 +268,7 @@ describe('ModelModal', () => {
     ]
 
     const officialOpenAI = renderModal({
-      provider: createProvider({ provider: 'langgenius/openai/openai' }),
+      provider: createProvider({ provider: 'crew/openai/openai' }),
     })
     expect(screen.getByText(tip))!.toBeInTheDocument()
     officialOpenAI.unmount()
@@ -286,7 +286,7 @@ describe('ModelModal', () => {
       { variable: 'api_protocol', type: 'select' } as unknown as CredentialFormSchema,
     ]
     renderModal({
-      provider: createProvider({ provider: 'langgenius/azure_openai/azure_openai' }),
+      provider: createProvider({ provider: 'crew/azure_openai/azure_openai' }),
     })
     expect(screen.queryByText(tip)).not.toBeInTheDocument()
   })

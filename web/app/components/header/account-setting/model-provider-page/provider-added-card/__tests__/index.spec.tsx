@@ -78,7 +78,7 @@ vi.mock('../model-list', () => ({
       <button type="button" onClick={onCollapse}>
         collapse list
       </button>
-      <button type="button" onClick={() => onChange('langgenius/openai/openai')}>
+      <button type="button" onClick={() => onChange('crew/openai/openai')}>
         refresh list
       </button>
     </div>
@@ -123,14 +123,14 @@ const ExternalExpandControls = () => {
       <button
         type="button"
         data-testid="expand-other-provider"
-        onClick={() => expandModelProviderList('langgenius/anthropic/anthropic')}
+        onClick={() => expandModelProviderList('crew/anthropic/anthropic')}
       >
         expand other
       </button>
       <button
         type="button"
         data-testid="expand-current-provider"
-        onClick={() => expandModelProviderList('langgenius/openai/openai')}
+        onClick={() => expandModelProviderList('crew/openai/openai')}
       >
         expand current
       </button>
@@ -150,7 +150,7 @@ const modelProviderModelsResponse = {
       model_properties: {},
       load_balancing_enabled: false,
       provider: {
-        provider: 'langgenius/openai/openai',
+        provider: 'crew/openai/openai',
         label: { en_US: 'OpenAI', zh_Hans: 'OpenAI' },
         supported_model_types: ['llm'],
         tenant_id: 'tenant-id',
@@ -161,7 +161,7 @@ const modelProviderModelsResponse = {
 
 describe('ProviderAddedCard', () => {
   const mockProvider = {
-    provider: 'langgenius/openai/openai',
+    provider: 'crew/openai/openai',
     configurate_methods: ['predefinedModel'],
     system_configuration: { enabled: true },
     supported_model_types: ['llm'],

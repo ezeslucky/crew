@@ -16,7 +16,7 @@ const getModelProviderPluginId = (provider: string) => {
 
   if (organization && pluginName) return `${organization}/${pluginName}`
 
-  return provider ? `langgenius/${provider}` : ''
+  return provider ? `crew/${provider}` : ''
 }
 
 type ModelSelectorProps = {

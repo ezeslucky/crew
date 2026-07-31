@@ -120,8 +120,8 @@ const ProviderAddedCard: FC<ProviderAddedCardProps> = ({
       <div
         className={cn(
           'group relative mb-0 min-h-[120px] overflow-hidden rounded-xl border-[0.5px] border-divider-regular bg-components-panel-on-panel-item-bg shadow-xs',
-          currentProviderName === 'langgenius/openai/openai' && 'bg-third-party-model-bg-openai',
-          currentProviderName === 'langgenius/anthropic/anthropic' &&
+          currentProviderName === 'crew/openai/openai' && 'bg-third-party-model-bg-openai',
+          currentProviderName === 'crew/anthropic/anthropic' &&
             'bg-third-party-model-bg-anthropic',
         )}
       >
@@ -230,8 +230,8 @@ const ProviderAddedCard: FC<ProviderAddedCardProps> = ({
       data-testid="provider-added-card"
       className={cn(
         'rounded-xl border-[0.5px] border-divider-regular bg-third-party-model-bg-default shadow-xs',
-        currentProviderName === 'langgenius/openai/openai' && 'bg-third-party-model-bg-openai',
-        currentProviderName === 'langgenius/anthropic/anthropic' &&
+        currentProviderName === 'crew/openai/openai' && 'bg-third-party-model-bg-openai',
+        currentProviderName === 'crew/anthropic/anthropic' &&
           'bg-third-party-model-bg-anthropic',
       )}
     >

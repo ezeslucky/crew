@@ -30,7 +30,7 @@ function getModelProviderPluginId(provider: string) {
 
   if (organization && pluginName) return `${organization}/${pluginName}`
 
-  return provider ? `langgenius/${provider}` : ''
+  return provider ? `crew/${provider}` : ''
 }
 
 export function getDefaultAgentSoul(defaultModel?: DefaultModelResponse): AgentSoulConfig {

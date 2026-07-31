@@ -111,7 +111,7 @@ function setDocumentVisibilityState(visibilityState: DocumentVisibilityState) {
 }
 
 const configuredModel = {
-  provider: 'langgenius/openai/openai',
+  provider: 'crew/openai/openai',
   model: 'gpt-4o-mini',
 }
 
@@ -635,7 +635,7 @@ describe('useAgentConfigureSync', () => {
         },
       },
       currentModel: {
-        provider: 'langgenius/openai/openai',
+        provider: 'crew/openai/openai',
         model: 'gpt-4o-mini',
       },
     })
@@ -649,9 +649,9 @@ describe('useAgentConfigureSync', () => {
         body: expect.objectContaining({
           agent_soul: expect.objectContaining({
             model: expect.objectContaining({
-              model_provider: 'langgenius/openai/openai',
+              model_provider: 'crew/openai/openai',
               model: 'gpt-4o-mini',
-              plugin_id: 'langgenius/openai',
+              plugin_id: 'crew/openai',
             }),
           }),
         }),

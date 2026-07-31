@@ -169,7 +169,7 @@ const baseConsoleState: ConsoleStateFixture = {
   isCurrentWorkspaceEditor: true,
   isCurrentWorkspaceDatasetOperator: false,
   refreshCurrentWorkspace: vi.fn(),
-  langGeniusVersionInfo: {
+  crewVersionInfo: {
     current_env: 'testing',
     current_version: '0.6.0',
     latest_version: '0.6.0',
@@ -342,8 +342,8 @@ describe('AccountDropdown', () => {
         ...baseConsoleState,
         userProfile: { ...baseConsoleState.userProfile, name: 'User' },
         isCurrentWorkspaceOwner: true,
-        langGeniusVersionInfo: {
-          ...baseConsoleState.langGeniusVersionInfo,
+        crewVersionInfo: {
+          ...baseConsoleState.crewVersionInfo,
           current_version: '0.6.0',
           latest_version: '0.6.0',
         },
@@ -464,8 +464,8 @@ describe('AccountDropdown', () => {
       setConsoleState({
         ...baseConsoleState,
         userProfile: { ...baseConsoleState.userProfile, name: 'User' },
-        langGeniusVersionInfo: {
-          ...baseConsoleState.langGeniusVersionInfo,
+        crewVersionInfo: {
+          ...baseConsoleState.crewVersionInfo,
           current_version: '0.6.0',
           latest_version: '0.7.0',
         },
@@ -486,8 +486,8 @@ describe('AccountDropdown', () => {
       setConsoleState({
         ...baseConsoleState,
         userProfile: { ...baseConsoleState.userProfile, name: 'User' },
-        langGeniusVersionInfo: {
-          ...baseConsoleState.langGeniusVersionInfo,
+        crewVersionInfo: {
+          ...baseConsoleState.crewVersionInfo,
           current_version: '0.7.0',
           latest_version: '0.7.0',
         },

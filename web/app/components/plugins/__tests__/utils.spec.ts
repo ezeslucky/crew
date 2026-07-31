@@ -8,7 +8,7 @@ const createPlugin = (
 ): Pick<Plugin, 'from' | 'name' | 'org' | 'type'> => ({
   from: 'github',
   name: 'demo-plugin',
-  org: 'langgenius',
+  org: 'crew',
   type: 'plugin',
   ...overrides,
 })
@@ -31,14 +31,14 @@ describe('plugins/utils', () => {
     it('builds the marketplace icon url for plugins and bundles', () => {
       expect(
         getPluginCardIconUrl(createPlugin({ from: 'marketplace' }), 'icon.png', 'tenant-1'),
-      ).toBe(`${MARKETPLACE_API_PREFIX}/plugins/langgenius/demo-plugin/icon`)
+      ).toBe(`${MARKETPLACE_API_PREFIX}/plugins/crew/demo-plugin/icon`)
       expect(
         getPluginCardIconUrl(
           createPlugin({ from: 'marketplace', type: 'bundle' }),
           'icon.png',
           'tenant-1',
         ),
-      ).toBe(`${MARKETPLACE_API_PREFIX}/bundles/langgenius/demo-plugin/icon`)
+      ).toBe(`${MARKETPLACE_API_PREFIX}/bundles/crew/demo-plugin/icon`)
     })
 
     it('falls back to the raw icon when tenant id is missing for non-marketplace plugins', () => {

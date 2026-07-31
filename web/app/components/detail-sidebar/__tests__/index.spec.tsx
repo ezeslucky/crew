@@ -14,7 +14,7 @@ const { hotkeyRegistrations } = vi.hoisted(() => ({
 }))
 const mockConsoleState = vi.hoisted(() => ({
   current: {
-    langGeniusVersionInfo: {
+    crewVersionInfo: {
       current_env: '',
     },
   },
@@ -83,7 +83,7 @@ describe('DetailSidebarFrame', () => {
     localStorage.clear()
     hotkeyRegistrations.clear()
     mockConsoleState.current = {
-      langGeniusVersionInfo: {
+      crewVersionInfo: {
         current_env: '',
       },
     }
@@ -111,7 +111,7 @@ describe('DetailSidebarFrame', () => {
 
   it('collapses detail content from the top toggle and hides environment metadata', () => {
     mockConsoleState.current = {
-      langGeniusVersionInfo: {
+      crewVersionInfo: {
         current_env: 'TESTING',
       },
     }

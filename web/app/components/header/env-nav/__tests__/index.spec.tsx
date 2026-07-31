@@ -21,7 +21,7 @@ describe('EnvNav', () => {
 
   it('should render null when environment is PRODUCTION', () => {
     const consoleState = {
-      langGeniusVersionInfo: {
+      crewVersionInfo: {
         current_env: 'PRODUCTION',
       },
     } as unknown as ConsoleStateFixture
@@ -34,7 +34,7 @@ describe('EnvNav', () => {
 
   it('should render TESTING tag and icon when environment is TESTING', () => {
     const consoleState = {
-      langGeniusVersionInfo: {
+      crewVersionInfo: {
         current_env: 'TESTING',
       },
     } as unknown as ConsoleStateFixture
@@ -47,7 +47,7 @@ describe('EnvNav', () => {
 
   it('should render DEVELOPMENT tag and icon when environment is DEVELOPMENT', () => {
     const consoleState = {
-      langGeniusVersionInfo: {
+      crewVersionInfo: {
         current_env: 'DEVELOPMENT',
       },
     } as unknown as ConsoleStateFixture

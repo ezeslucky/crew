@@ -26,7 +26,7 @@ const { mockConfig, mockOpenZendeskWindow, mockMailToSupport, mockSetShowPricing
   }))
 const mockConsoleState = vi.hoisted(() => ({
   current: {
-    langGeniusVersionInfo: { current_version: '1.0.0' },
+    crewVersionInfo: { current_version: '1.0.0' },
     userProfile: { email: 'user@example.com' },
   },
 }))
@@ -79,7 +79,7 @@ describe('SupportMenu', () => {
     mockConfig.supportEmailAddress = ''
     mockConfig.zendeskWidgetKey = 'zendesk-key'
     mockConsoleState.current = {
-      langGeniusVersionInfo: { current_version: '1.0.0' },
+      crewVersionInfo: { current_version: '1.0.0' },
       userProfile: { email: 'user@example.com' },
     }
     ;(useProviderContext as Mock).mockReturnValue({

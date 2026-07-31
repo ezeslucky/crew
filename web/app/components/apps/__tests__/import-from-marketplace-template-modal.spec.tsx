@@ -22,7 +22,7 @@ describe('ImportFromMarketplaceTemplateModal', () => {
           icon: 'technologist',
           icon_background: '#D1FAE5',
           icon_file_key: '',
-          publisher_unique_handle: 'langgenius',
+          publisher_unique_handle: 'crew',
           usage_count: 261,
           categories: ['operations'],
         },

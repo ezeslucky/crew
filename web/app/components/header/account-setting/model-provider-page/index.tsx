@@ -34,7 +34,7 @@ type Props = Readonly<{
   hideSystemModelSelectorProviderSettingsFooter?: boolean
 }>
 
-const FixedModelProvider = ['langgenius/openai/openai', 'langgenius/anthropic/anthropic']
+const FixedModelProvider = ['crew/openai/openai', 'crew/anthropic/anthropic']
 
 const ModelProviderPage = ({
   layout,

@@ -25,7 +25,7 @@ const createMockAppDetail = (mode: string, overrides: Partial<TryAppInfo> = {}):
     },
     model_config: {
       model: {
-        provider: 'langgenius/openai/openai',
+        provider: 'crew/openai/openai',
         name: 'gpt-4',
         mode: 'chat',
       },

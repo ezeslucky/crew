@@ -8,7 +8,7 @@ import * as React from 'react'
 import { useEffect, useMemo } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import useCheckInstalled from '@/app/components/plugins/install-plugin/hooks/use-check-installed'
-import { langGeniusVersionInfoAtom } from '@/context/version-state'
+import { crewVersionInfoAtom } from '@/context/version-state'
 import { uninstallPlugin } from '@/service/plugins'
 import { useInstallPackageFromLocal, usePluginTaskList } from '@/service/use-plugins'
 import { isEqualOrLaterThanVersion } from '@/utils/semver'
@@ -99,14 +99,14 @@ const Installed: FC<Props> = ({
     }
   }
 
-  const langGeniusVersionInfo = useAtomValue(langGeniusVersionInfoAtom)
+  const crewVersionInfo = useAtomValue(crewVersionInfoAtom)
   const isCrewVersionCompatible = useMemo(() => {
-    if (!langGeniusVersionInfo.current_version) return true
+    if (!crewVersionInfo.current_version) return true
     return isEqualOrLaterThanVersion(
-      langGeniusVersionInfo.current_version,
+      crewVersionInfo.current_version,
       payload.meta.minimum_crew_version ?? '0.0.0',
     )
-  }, [langGeniusVersionInfo.current_version, payload.meta.minimum_crew_version])
+  }, [crewVersionInfo.current_version, payload.meta.minimum_crew_version])
 
   return (
     <>

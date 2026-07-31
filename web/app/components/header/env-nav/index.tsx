@@ -4,7 +4,7 @@ import { useAtomValue } from 'jotai'
 import { useTranslation } from 'react-i18next'
 import { TerminalSquare } from '@/app/components/base/icons/src/vender/solid/development'
 import { Beaker02 } from '@/app/components/base/icons/src/vender/solid/education'
-import { langGeniusVersionInfoAtom } from '@/context/version-state'
+import { crewVersionInfoAtom } from '@/context/version-state'
 
 const headerEnvClassName: { [k: string]: string } = {
   DEVELOPMENT: 'bg-[#FEC84B] border-[#FDB022] text-[#93370D]',
@@ -13,18 +13,18 @@ const headerEnvClassName: { [k: string]: string } = {
 
 const EnvNav = () => {
   const { t } = useTranslation()
-  const langGeniusVersionInfo = useAtomValue(langGeniusVersionInfoAtom)
+  const crewVersionInfo = useAtomValue(crewVersionInfoAtom)
   const showEnvTag =
-    langGeniusVersionInfo.current_env === 'TESTING' ||
-    langGeniusVersionInfo.current_env === 'DEVELOPMENT'
+    crewVersionInfo.current_env === 'TESTING' ||
+    crewVersionInfo.current_env === 'DEVELOPMENT'
 
   if (!showEnvTag) return null
 
   return (
     <div
-      className={`mr-1 flex h-[22px] items-center rounded-md border px-2 text-xs font-medium ${headerEnvClassName[langGeniusVersionInfo.current_env]} `}
+      className={`mr-1 flex h-[22px] items-center rounded-md border px-2 text-xs font-medium ${headerEnvClassName[crewVersionInfo.current_env]} `}
     >
-      {langGeniusVersionInfo.current_env === 'TESTING' && (
+      {crewVersionInfo.current_env === 'TESTING' && (
         <>
           <Beaker02 className="size-3" />
           <div className="ml-1 max-[1280px]:hidden">
@@ -32,7 +32,7 @@ const EnvNav = () => {
           </div>
         </>
       )}
-      {langGeniusVersionInfo.current_env === 'DEVELOPMENT' && (
+      {crewVersionInfo.current_env === 'DEVELOPMENT' && (
         <>
           <TerminalSquare className="size-3" />
           <div className="ml-1 max-[1280px]:hidden">

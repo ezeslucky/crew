@@ -1,4 +1,4 @@
-import type { LangGeniusVersionInfo } from '@/context/app-context-types'
+import type { CrewVersionInfo } from '@/context/app-context-types'
 // Import mocks for assertions
 import type { ConsoleStateFixture as BaseConsoleStateFixture } from '@/test/console/state-fixture'
 import { toast } from '@crew/crew-ui/toast'
@@ -15,7 +15,7 @@ import { renderHookWithConsoleQuery as renderHook } from '@/test/console/query-d
 import { PermissionType, PluginCategoryEnum } from '../../types'
 import useReferenceSetting, { useCanInstallPluginFromMarketplace } from '../use-reference-setting'
 
-const defaultLangGeniusVersionInfo: LangGeniusVersionInfo = {
+const defaultCrewVersionInfo: CrewVersionInfo = {
   current_env: '',
   current_version: '1.0.0',
   latest_version: '',
@@ -29,8 +29,8 @@ const defaultLangGeniusVersionInfo: LangGeniusVersionInfo = {
   can_auto_update: false,
 }
 
-type ConsoleStateFixture = Omit<BaseConsoleStateFixture, 'langGeniusVersionInfo'> & {
-  langGeniusVersionInfo?: Partial<LangGeniusVersionInfo>
+type ConsoleStateFixture = Omit<BaseConsoleStateFixture, 'crewVersionInfo'> & {
+  crewVersionInfo?: Partial<CrewVersionInfo>
 }
 
 let mockConsoleState: ConsoleStateFixture = {}
@@ -38,9 +38,9 @@ let mockConsoleState: ConsoleStateFixture = {}
 const setConsoleState = (state: ConsoleStateFixture) => {
   mockConsoleState = {
     ...state,
-    langGeniusVersionInfo: {
-      ...defaultLangGeniusVersionInfo,
-      ...state.langGeniusVersionInfo,
+    crewVersionInfo: {
+      ...defaultCrewVersionInfo,
+      ...state.crewVersionInfo,
     },
   }
 }
@@ -77,7 +77,7 @@ describe('useReferenceSetting Hook', () => {
     setConsoleState({
       isCurrentWorkspaceManager: false,
       isCurrentWorkspaceOwner: false,
-      langGeniusVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
+      crewVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
       workspacePermissionKeys: [] as string[],
     })
 
@@ -153,7 +153,7 @@ describe('useReferenceSetting Hook', () => {
       setConsoleState({
         isCurrentWorkspaceManager: false,
         isCurrentWorkspaceOwner: false,
-        langGeniusVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
+        crewVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
         workspacePermissionKeys: ['plugin.install', 'plugin.debug'],
       })
       vi.mocked(usePluginPermissionSettings).mockReturnValue({
@@ -173,7 +173,7 @@ describe('useReferenceSetting Hook', () => {
       setConsoleState({
         isCurrentWorkspaceManager: true,
         isCurrentWorkspaceOwner: false,
-        langGeniusVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
+        crewVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
         workspacePermissionKeys: [] as string[],
       })
 
@@ -194,7 +194,7 @@ describe('useReferenceSetting Hook', () => {
       setConsoleState({
         isCurrentWorkspaceManager: false,
         isCurrentWorkspaceOwner: true,
-        langGeniusVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
+        crewVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
         workspacePermissionKeys: [] as string[],
       })
 
@@ -215,7 +215,7 @@ describe('useReferenceSetting Hook', () => {
       setConsoleState({
         isCurrentWorkspaceManager: false,
         isCurrentWorkspaceOwner: false,
-        langGeniusVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
+        crewVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
         workspacePermissionKeys: ['plugin.install'],
       })
 
@@ -238,7 +238,7 @@ describe('useReferenceSetting Hook', () => {
       setConsoleState({
         isCurrentWorkspaceManager: false,
         isCurrentWorkspaceOwner: false,
-        langGeniusVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
+        crewVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
         workspacePermissionKeys: ['plugin.install', 'plugin.debug'],
       })
 
@@ -261,7 +261,7 @@ describe('useReferenceSetting Hook', () => {
       setConsoleState({
         isCurrentWorkspaceManager: true,
         isCurrentWorkspaceOwner: false,
-        langGeniusVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
+        crewVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
         workspacePermissionKeys: ['plugin.install', 'plugin.delete', 'plugin.debug'],
       })
       vi.mocked(usePluginPermissionSettings).mockReturnValue({
@@ -289,7 +289,7 @@ describe('useReferenceSetting Hook', () => {
       setConsoleState({
         isCurrentWorkspaceManager: false,
         isCurrentWorkspaceOwner: false,
-        langGeniusVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
+        crewVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
         workspacePermissionKeys: ['plugin.plugin_preferences'],
       })
 
@@ -302,7 +302,7 @@ describe('useReferenceSetting Hook', () => {
       setConsoleState({
         isCurrentWorkspaceManager: false,
         isCurrentWorkspaceOwner: true,
-        langGeniusVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
+        crewVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
         workspacePermissionKeys: ['plugin.plugin_preferences'],
       })
 
@@ -318,7 +318,7 @@ describe('useReferenceSetting Hook', () => {
       setConsoleState({
         isCurrentWorkspaceManager: true,
         isCurrentWorkspaceOwner: false,
-        langGeniusVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
+        crewVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
         workspacePermissionKeys: [] as string[],
       })
 
@@ -396,7 +396,7 @@ describe('useReferenceSetting Hook', () => {
       setConsoleState({
         isCurrentWorkspaceManager: false,
         isCurrentWorkspaceOwner: false,
-        langGeniusVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
+        crewVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
         workspacePermissionKeys: ['plugin.install', 'plugin.debug'],
       })
       vi.mocked(usePluginAutoUpgradeSettings).mockReturnValue({
@@ -415,7 +415,7 @@ describe('useReferenceSetting Hook', () => {
         isCurrentWorkspaceManager: false,
         isCurrentWorkspaceOwner: false,
         isLoadingWorkspacePermissionKeys: true,
-        langGeniusVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
+        crewVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
         workspacePermissionKeys: [] as string[],
       })
 
@@ -430,7 +430,7 @@ describe('useReferenceSetting Hook', () => {
         isCurrentWorkspaceManager: false,
         isCurrentWorkspaceOwner: false,
         isLoadingCurrentWorkspace: true,
-        langGeniusVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
+        crewVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
         workspacePermissionKeys: ['plugin.install'],
       })
 
@@ -445,7 +445,7 @@ describe('useReferenceSetting Hook', () => {
       setConsoleState({
         isCurrentWorkspaceManager: false,
         isCurrentWorkspaceOwner: false,
-        langGeniusVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
+        crewVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
         workspacePermissionKeys: [
           'plugin.install',
           'plugin.delete',
@@ -478,7 +478,7 @@ describe('useReferenceSetting Hook', () => {
       setConsoleState({
         isCurrentWorkspaceManager: true,
         isCurrentWorkspaceOwner: false,
-        langGeniusVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
+        crewVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
         workspacePermissionKeys: [] as string[],
       })
 
@@ -505,7 +505,7 @@ describe('useCanInstallPluginFromMarketplace Hook', () => {
     setConsoleState({
       isCurrentWorkspaceManager: true,
       isCurrentWorkspaceOwner: false,
-      langGeniusVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
+      crewVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
       workspacePermissionKeys: ['plugin.install'],
     })
 
@@ -544,7 +544,7 @@ describe('useCanInstallPluginFromMarketplace Hook', () => {
     setConsoleState({
       isCurrentWorkspaceManager: true,
       isCurrentWorkspaceOwner: false,
-      langGeniusVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
+      crewVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
       workspacePermissionKeys: [] as string[],
     })
 
@@ -559,7 +559,7 @@ describe('useCanInstallPluginFromMarketplace Hook', () => {
     setConsoleState({
       isCurrentWorkspaceManager: true,
       isCurrentWorkspaceOwner: false,
-      langGeniusVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
+      crewVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
       workspacePermissionKeys: [] as string[],
     })
 
@@ -601,7 +601,7 @@ describe('useCanInstallPluginFromMarketplace Hook', () => {
     setConsoleState({
       isCurrentWorkspaceManager: false,
       isCurrentWorkspaceOwner: false,
-      langGeniusVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
+      crewVersionInfo: { current_version: '1.0.0', latest_version: '', version: '' },
       workspacePermissionKeys: ['plugin.install'],
     })
     vi.mocked(usePluginPermissionSettings).mockReturnValue({

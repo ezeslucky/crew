@@ -554,7 +554,7 @@ const getModelProviderPluginId = (
 
   if (organization && pluginName) return `${organization}/${pluginName}`
 
-  return model.provider ? `langgenius/${model.provider}` : ''
+  return model.provider ? `crew/${model.provider}` : ''
 }
 
 export const formStateToAgentSoulConfig = ({

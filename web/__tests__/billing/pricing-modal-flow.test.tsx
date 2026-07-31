@@ -129,7 +129,7 @@ const setupContexts = (
   mockConsoleState = {
     isCurrentWorkspaceManager: true,
     userProfile: { email: 'test@example.com' },
-    langGeniusVersionInfo: { current_version: '1.0.0' },
+    crewVersionInfo: { current_version: '1.0.0' },
     ...appOverrides,
   }
 }

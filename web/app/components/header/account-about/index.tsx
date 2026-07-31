@@ -1,5 +1,5 @@
 'use client'
-import type { LangGeniusVersionInfo } from '@/context/app-context-types'
+import type { CrewVersionInfo } from '@/context/app-context-types'
 import { Button } from '@crew/crew-ui/button'
 import { Dialog, DialogContent } from '@crew/crew-ui/dialog'
 import { RiCloseLine } from '@remixicon/react'
@@ -12,13 +12,13 @@ import { systemFeaturesQueryOptions } from '@/features/system-features/client'
 import Link from '@/next/link'
 
 type IAccountSettingProps = {
-  langGeniusVersionInfo: LangGeniusVersionInfo
+  crewVersionInfo: CrewVersionInfo
   onCancel: () => void
 }
 
-export default function AccountAbout({ langGeniusVersionInfo, onCancel }: IAccountSettingProps) {
+export default function AccountAbout({ crewVersionInfo, onCancel }: IAccountSettingProps) {
   const { t } = useTranslation()
-  const isLatest = langGeniusVersionInfo.current_version === langGeniusVersionInfo.latest_version
+  const isLatest = crewVersionInfo.current_version === crewVersionInfo.latest_version
   const { data: systemFeatures } = useSuspenseQuery(systemFeaturesQueryOptions())
 
   return (
@@ -51,10 +51,10 @@ export default function AccountAbout({ langGeniusVersionInfo, onCancel }: IAccou
 
             <div className="text-center text-xs font-normal text-text-tertiary">
               Version
-              {langGeniusVersionInfo?.current_version}
+              {crewVersionInfo?.current_version}
             </div>
             <div className="flex flex-col items-center gap-2 text-center text-xs font-normal text-text-secondary">
-              <div>©{dayjs().year()} LangGenius, Inc., Contributors.</div>
+              <div>©{dayjs().year()} Crew, Inc., Contributors.</div>
               <div className="text-text-accent">
                 {IS_CE_EDITION ? (
                   <Link
@@ -84,11 +84,11 @@ export default function AccountAbout({ langGeniusVersionInfo, onCancel }: IAccou
               {isLatest
                 ? t(($) => $['about.latestAvailable'], {
                     ns: 'common',
-                    version: langGeniusVersionInfo.latest_version,
+                    version: crewVersionInfo.latest_version,
                   })
                 : t(($) => $['about.nowAvailable'], {
                     ns: 'common',
-                    version: langGeniusVersionInfo.latest_version,
+                    version: crewVersionInfo.latest_version,
                   })}
             </div>
             <div className="flex shrink-0 items-center">
@@ -104,7 +104,7 @@ export default function AccountAbout({ langGeniusVersionInfo, onCancel }: IAccou
               {!isLatest && !IS_CE_EDITION && (
                 <Button variant="primary" size="small">
                   <Link
-                    href={langGeniusVersionInfo.release_notes}
+                    href={crewVersionInfo.release_notes}
                     target="_blank"
                     rel="noopener noreferrer"
                   >

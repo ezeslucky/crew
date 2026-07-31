@@ -28,7 +28,7 @@ let mockModelProvidersData: {
   data: {
     data: [
       {
-        provider: 'langgenius/openai/openai',
+        provider: 'crew/openai/openai',
         system_configuration: {
           enabled: true,
           current_quota_type: 'paid',
@@ -91,7 +91,7 @@ describe('ModerationSettingModal', () => {
       data: {
         data: [
           {
-            provider: 'langgenius/openai/openai',
+            provider: 'crew/openai/openai',
             system_configuration: {
               enabled: true,
               current_quota_type: 'paid',
@@ -603,7 +603,7 @@ describe('ModerationSettingModal', () => {
       data: {
         data: [
           {
-            provider: 'langgenius/openai/openai',
+            provider: 'crew/openai/openai',
             system_configuration: {
               enabled: false,
               current_quota_type: 'free',
@@ -639,7 +639,7 @@ describe('ModerationSettingModal', () => {
       data: {
         data: [
           {
-            provider: 'langgenius/openai/openai',
+            provider: 'crew/openai/openai',
             system_configuration: {
               enabled: false,
               current_quota_type: 'free',
@@ -680,7 +680,7 @@ describe('ModerationSettingModal', () => {
       data: {
         data: [
           {
-            provider: 'langgenius/openai/openai',
+            provider: 'crew/openai/openai',
             system_configuration: {
               enabled: false,
               current_quota_type: 'free',

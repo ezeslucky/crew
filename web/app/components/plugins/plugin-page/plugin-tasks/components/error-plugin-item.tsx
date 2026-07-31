@@ -57,7 +57,7 @@ const ErrorPluginItem: FC<ErrorPluginItemProps> = ({ plugin, getIconUrl, languag
         endpoint: { settings: [] },
         tags: [],
         badges: [],
-        verification: { authorized_category: 'langgenius' },
+        verification: { authorized_category: 'crew' },
         from: 'marketplace',
       }
       setInstallPayload({ uniqueIdentifier: info.latest_package_identifier, manifest })

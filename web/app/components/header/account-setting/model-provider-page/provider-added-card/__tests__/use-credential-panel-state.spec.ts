@@ -15,7 +15,7 @@ const mockTrialCredits = {
   isLoading: false,
   nextCreditResetDate: undefined,
 }
-const mockTrialModels = ['langgenius/openai/openai', 'langgenius/anthropic/anthropic']
+const mockTrialModels = ['crew/openai/openai', 'crew/anthropic/anthropic']
 
 vi.mock('../use-trial-credits', () => ({
   useTrialCredits: () => mockTrialCredits,
@@ -35,7 +35,7 @@ const renderPanelHook = (provider: ModelProvider | undefined) => {
 
 const createProvider = (overrides: Partial<ModelProvider> = {}): ModelProvider =>
   ({
-    provider: 'langgenius/openai/openai',
+    provider: 'crew/openai/openai',
     provider_credential_schema: { credential_form_schemas: [] },
     custom_configuration: {
       status: CustomConfigurationStatusEnum.active,
@@ -265,7 +265,7 @@ describe('useCredentialPanelState', () => {
 
     it('should return apiKeyOnly when provider not in trial_models even if system enabled', () => {
       const provider = createProvider({
-        provider: 'langgenius/minimax/minimax',
+        provider: 'crew/minimax/minimax',
         system_configuration: {
           enabled: true,
           current_quota_type: CurrentSystemQuotaTypeEnum.trial,
@@ -320,7 +320,7 @@ describe('useCredentialPanelState', () => {
 
     it('should hide priority switcher when provider not in trial_models', () => {
       const provider = createProvider({
-        provider: 'langgenius/zhipuai/zhipuai',
+        provider: 'crew/zhipuai/zhipuai',
         system_configuration: {
           enabled: true,
           current_quota_type: CurrentSystemQuotaTypeEnum.trial,

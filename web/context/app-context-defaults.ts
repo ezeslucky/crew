@@ -1,7 +1,7 @@
-import type { LangGeniusVersionInfo } from './app-context-types'
+import type { CrewVersionInfo } from './app-context-types'
 import type { ICurrentWorkspace } from '@/models/common'
 
-export const initialLangGeniusVersionInfo: LangGeniusVersionInfo = {
+export const initialCrewVersionInfo: CrewVersionInfo = {
   current_env: '',
   current_version: '',
   latest_version: '',

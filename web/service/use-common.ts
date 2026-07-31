@@ -44,8 +44,8 @@ export const commonQueryKeys = {
   notionBinding: (code?: string | null) => [NAME_SPACE, 'notion-binding', code] as const,
   modelParameterRules: (provider?: string, model?: string) =>
     [NAME_SPACE, 'model-parameter-rules', provider, model] as const,
-  langGeniusVersion: (currentVersion?: string | null) =>
-    [NAME_SPACE, 'langgenius-version', currentVersion] as const,
+  crewVersion: (currentVersion?: string | null) =>
+    [NAME_SPACE, 'crew-version', currentVersion] as const,
   forgotPasswordValidity: (token?: string | null) =>
     [NAME_SPACE, 'forgot-password-validity', token] as const,
   dataSourceIntegrates: [NAME_SPACE, 'data-source-integrates'] as const,

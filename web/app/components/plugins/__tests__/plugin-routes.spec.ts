@@ -22,19 +22,19 @@ describe('plugin routes', () => {
     [
       {
         tab: 'trigger',
-        'package-ids': '["langgenius/telegram_trigger"]',
+        'package-ids': '["crew/telegram_trigger"]',
         source: 'https://marketplace.crew.ai',
       },
-      '/integrations/trigger?package-ids=%5B%22langgenius%2Ftelegram_trigger%22%5D',
+      '/integrations/trigger?package-ids=%5B%22crew%2Ftelegram_trigger%22%5D',
     ],
   ])('redirects legacy plugin category URLs for search params %j', (searchParams, expected) => {
     expect(getLegacyPluginRedirectPath(searchParams)).toBe(expected)
   })
 
   it.each([
-    { 'package-ids': '["langgenius/telegram_trigger"]' },
-    { tab: 'plugins', 'package-ids': '["langgenius/telegram_trigger"]' },
-    { 'bundle-info': '{"org":"langgenius","name":"bundle","version":"1.0.0"}' },
+    { 'package-ids': '["crew/telegram_trigger"]' },
+    { tab: 'plugins', 'package-ids': '["crew/telegram_trigger"]' },
+    { 'bundle-info': '{"org":"crew","name":"bundle","version":"1.0.0"}' },
   ])('keeps install deep links on the legacy plugin page for search params %j', (searchParams) => {
     expect(getLegacyPluginRedirectPath(searchParams)).toBeUndefined()
   })
@@ -53,8 +53,8 @@ describe('plugin routes', () => {
   it.each([
     [{ 'package-ids': '["junjiem/mcp_see_agent"]' }, true],
     [{ tab: 'plugins', 'package-ids': '["junjiem/mcp_see_agent"]' }, true],
-    [{ tab: 'trigger', 'package-ids': '["langgenius/telegram_trigger"]' }, false],
-    [{ 'bundle-info': '{"org":"langgenius","name":"bundle","version":"1.0.0"}' }, false],
+    [{ tab: 'trigger', 'package-ids': '["crew/telegram_trigger"]' }, false],
+    [{ 'bundle-info': '{"org":"crew","name":"bundle","version":"1.0.0"}' }, false],
   ])(
     'detects package install deep links that need category resolution for search params %j',
     (searchParams, expected) => {
@@ -65,8 +65,8 @@ describe('plugin routes', () => {
   it.each([
     [
       'model',
-      { 'package-ids': '["langgenius/openai"]' },
-      '/integrations/model-provider?package-ids=%5B%22langgenius%2Fopenai%22%5D',
+      { 'package-ids': '["crew/openai"]' },
+      '/integrations/model-provider?package-ids=%5B%22crew%2Fopenai%22%5D',
     ],
     [
       'agent-strategy',
@@ -77,15 +77,15 @@ describe('plugin routes', () => {
       'trigger',
       {
         tab: 'plugins',
-        'package-ids': '["langgenius/telegram_trigger"]',
+        'package-ids': '["crew/telegram_trigger"]',
         source: 'https://marketplace.crew.ai',
       },
-      '/integrations/trigger?package-ids=%5B%22langgenius%2Ftelegram_trigger%22%5D',
+      '/integrations/trigger?package-ids=%5B%22crew%2Ftelegram_trigger%22%5D',
     ],
     [
       'datasource',
-      { 'package-ids': '["langgenius/notion_datasource"]' },
-      '/integrations/data-source?package-ids=%5B%22langgenius%2Fnotion_datasource%22%5D',
+      { 'package-ids': '["crew/notion_datasource"]' },
+      '/integrations/data-source?package-ids=%5B%22crew%2Fnotion_datasource%22%5D',
     ],
   ])(
     'builds install redirect paths from marketplace plugin category %s',
@@ -106,28 +106,28 @@ describe('plugin routes', () => {
     [
       {
         tab: 'trigger',
-        'package-ids': '["langgenius/telegram_trigger"]',
+        'package-ids': '["crew/telegram_trigger"]',
         source: 'https://marketplace.crew.ai',
       },
-      '/integrations/trigger?package-ids=%5B%22langgenius%2Ftelegram_trigger%22%5D',
+      '/integrations/trigger?package-ids=%5B%22crew%2Ftelegram_trigger%22%5D',
     ],
     [
       {
         category: 'model',
-        'package-ids': '["langgenius/openai"]',
+        'package-ids': '["crew/openai"]',
         source: 'https://marketplace.crew.ai',
       },
-      '/integrations/model-provider?package-ids=%5B%22langgenius%2Fopenai%22%5D',
+      '/integrations/model-provider?package-ids=%5B%22crew%2Fopenai%22%5D',
     ],
     [
       {
         category: 'datasource',
-        'package-ids': '["langgenius/notion_datasource"]',
+        'package-ids': '["crew/notion_datasource"]',
         source: 'https://marketplace.crew.ai',
       },
-      '/integrations/data-source?package-ids=%5B%22langgenius%2Fnotion_datasource%22%5D',
+      '/integrations/data-source?package-ids=%5B%22crew%2Fnotion_datasource%22%5D',
     ],
-    [{ category: 'bundle', 'package-ids': '["langgenius/bundle"]' }, undefined],
+    [{ category: 'bundle', 'package-ids': '["crew/bundle"]' }, undefined],
     [{ category: 'agent-strategy' }, undefined],
   ])(
     'builds install redirect paths directly from install search params %j',

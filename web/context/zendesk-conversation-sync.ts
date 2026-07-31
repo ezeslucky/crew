@@ -5,7 +5,7 @@ import { atomEffect } from 'jotai-effect'
 import { setZendeskConversationFields } from '@/app/components/base/zendesk/utils'
 import { ZENDESK_FIELD_IDS } from '@/config'
 import { userProfileAtom } from './account-state'
-import { langGeniusVersionInfoAtom } from './version-state'
+import { crewVersionInfoAtom } from './version-state'
 import { currentWorkspaceAtom } from './workspace-state'
 
 type ZendeskSyncState = {
@@ -44,7 +44,7 @@ function syncZendeskField({
 export const zendeskConversationSyncAtom = atomEffect((get, set) => {
   const userProfile = get(userProfileAtom)
   const currentWorkspace = get(currentWorkspaceAtom)
-  const langGeniusVersionInfo = get(langGeniusVersionInfoAtom)
+  const crewVersionInfo = get(crewVersionInfoAtom)
   const state = get.peek(zendeskConversationSyncStateAtom)
   const nextState = { ...state }
 
@@ -52,7 +52,7 @@ export const zendeskConversationSyncAtom = atomEffect((get, set) => {
   didSync =
     syncZendeskField({
       fieldId: ZENDESK_FIELD_IDS.ENVIRONMENT,
-      value: langGeniusVersionInfo.current_env.toLowerCase(),
+      value: crewVersionInfo.current_env.toLowerCase(),
       previousValue: state.environment,
       setNextValue: (value) => {
         nextState.environment = value
@@ -61,7 +61,7 @@ export const zendeskConversationSyncAtom = atomEffect((get, set) => {
   didSync =
     syncZendeskField({
       fieldId: ZENDESK_FIELD_IDS.VERSION,
-      value: langGeniusVersionInfo.version,
+      value: crewVersionInfo.version,
       previousValue: state.version,
       setNextValue: (value) => {
         nextState.version = value

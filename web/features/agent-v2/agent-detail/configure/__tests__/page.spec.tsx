@@ -61,7 +61,7 @@ const toastMock = vi.hoisted(() => ({
 const modelHooksState = vi.hoisted(() => ({
   defaultTextGenerationModel: {
     provider: {
-      provider: 'langgenius/openai/openai',
+      provider: 'crew/openai/openai',
     },
     model: 'gpt-4o-mini',
   } as { provider: { provider: string }; model: string } | undefined,
@@ -412,7 +412,7 @@ describe('AgentConfigurePage', () => {
     vi.clearAllMocks()
     modelHooksState.defaultTextGenerationModel = {
       provider: {
-        provider: 'langgenius/openai/openai',
+        provider: 'crew/openai/openai',
       },
       model: 'gpt-4o-mini',
     }

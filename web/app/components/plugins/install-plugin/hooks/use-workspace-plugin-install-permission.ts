@@ -1,11 +1,11 @@
 import { useAtomValue } from 'jotai'
 import { useMemo } from 'react'
 import { workspacePermissionKeysAtom } from '@/context/permission-state'
-import { langGeniusVersionInfoAtom } from '@/context/version-state'
+import { crewVersionInfoAtom } from '@/context/version-state'
 import { hasPermission } from '@/utils/permission'
 
 const useWorkspacePluginInstallPermission = () => {
-  const langGeniusVersionInfo = useAtomValue(langGeniusVersionInfoAtom)
+  const crewVersionInfo = useAtomValue(crewVersionInfoAtom)
   const workspacePermissionKeys = useAtomValue(workspacePermissionKeysAtom)
 
   const canInstallPlugin = useMemo(() => {
@@ -34,7 +34,7 @@ const useWorkspacePluginInstallPermission = () => {
     canDeletePlugin,
     canDebugPlugin,
     canSetPluginPreferences,
-    currentCrewVersion: langGeniusVersionInfo?.current_version,
+    currentCrewVersion: crewVersionInfo?.current_version,
   }
 }
 

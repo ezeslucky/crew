@@ -16,7 +16,7 @@ import {
   workspacePermissionKeysAtom,
   workspacePermissionKeysLoadingAtom,
 } from '../permission-state'
-import { langGeniusVersionInfoAtom } from '../version-state'
+import { crewVersionInfoAtom } from '../version-state'
 import {
   currentWorkspaceAtom,
   currentWorkspaceLoadingAtom,
@@ -84,7 +84,7 @@ const mockSystemFeaturesState = vi.hoisted(() => ({
     },
   },
 }))
-const mockLangGeniusVersionState = vi.hoisted(() => ({
+const mockCrewVersionState = vi.hoisted(() => ({
   data: {
     version: '1.0.1',
     release_date: '',
@@ -166,7 +166,7 @@ vi.mock('@/service/client', () => ({
           }
         }) => ({
           queryKey: ['version', options.input?.query.current_version],
-          queryFn: async () => mockLangGeniusVersionState.data,
+          queryFn: async () => mockCrewVersionState.data,
           ...options,
         }),
       },
@@ -206,7 +206,7 @@ function ConsoleBootstrapProbe() {
   const workspacePermissionKeys = useAtomValue(workspacePermissionKeysAtom)
   const isLoadingWorkspacePermissionKeys = useAtomValue(workspacePermissionKeysLoadingAtom)
   const isLoadingCurrentWorkspace = useAtomValue(currentWorkspaceLoadingAtom)
-  const langGeniusVersionInfo = useAtomValue(langGeniusVersionInfoAtom)
+  const crewVersionInfo = useAtomValue(crewVersionInfoAtom)
   const refreshUserProfile = useSetAtom(refreshUserProfileAtom)
   const refreshCurrentWorkspace = useSetAtom(refreshCurrentWorkspaceAtom)
 
@@ -254,8 +254,8 @@ function ConsoleBootstrapProbe() {
       </span>
       <span>
         version:
-        {langGeniusVersionInfo.current_version}/{langGeniusVersionInfo.latest_version}/
-        {langGeniusVersionInfo.current_env}
+        {crewVersionInfo.current_version}/{crewVersionInfo.latest_version}/
+        {crewVersionInfo.current_env}
       </span>
       <button type="button" onClick={refreshUserProfile}>
         refresh user
@@ -340,7 +340,7 @@ describe('Console bootstrap', () => {
         enabled: false,
       },
     }
-    mockLangGeniusVersionState.data = {
+    mockCrewVersionState.data = {
       version: '1.0.1',
       release_date: '',
       release_notes: '',
@@ -369,7 +369,7 @@ describe('Console bootstrap', () => {
         })
       }
 
-      if (url === '/version') return Promise.resolve(mockLangGeniusVersionState.data)
+      if (url === '/version') return Promise.resolve(mockCrewVersionState.data)
 
       return Promise.reject(new Error(`Unexpected GET ${url}`))
     })
@@ -390,7 +390,7 @@ describe('Console bootstrap', () => {
     it('should fall back to placeholder values when workspace, permission, or version data is missing', async () => {
       mockCurrentWorkspaceQueryState.data = undefined
       mockPermissionKeysState.permissionKeys = []
-      mockLangGeniusVersionState.data = undefined
+      mockCrewVersionState.data = undefined
 
       renderConsoleBootstrap()
 

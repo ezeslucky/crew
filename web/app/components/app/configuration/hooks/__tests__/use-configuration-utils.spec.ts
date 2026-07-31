@@ -129,7 +129,7 @@ describe('useConfiguration utils', () => {
           datasets: { datasets: [] },
         },
         model: {
-          provider: 'langgenius/openai/openai',
+          provider: 'crew/openai/openai',
           name: 'gpt-4o',
           mode: ModelModeType.chat,
           completion_params: { temperature: 0.7 },
@@ -166,7 +166,7 @@ describe('useConfiguration utils', () => {
         model_id: 'gpt-4o',
         more_like_this: { enabled: true },
         opening_statement: 'hello',
-        provider: 'langgenius/openai/openai',
+        provider: 'crew/openai/openai',
         suggested_questions: ['how are you?'],
       }),
     )
@@ -187,12 +187,12 @@ describe('useConfiguration utils', () => {
           datasets: { datasets: [] },
           reranking_model: {
             reranking_model_name: 'rerank-1',
-            reranking_provider_name: 'langgenius/cohere/cohere',
+            reranking_provider_name: 'crew/cohere/cohere',
           },
         },
       } as any,
       currentRerankModel: 'rerank-1',
-      currentRerankProvider: 'langgenius/cohere/cohere',
+      currentRerankProvider: 'crew/cohere/cohere',
       nextDataSets: [],
     })
 
@@ -263,7 +263,7 @@ describe('useConfiguration utils', () => {
         },
       } as any,
       modelId: 'gpt-4o',
-      modelProvider: 'langgenius/openai/openai',
+      modelProvider: 'crew/openai/openai',
       promptMode: 'advanced' as any,
       promptTemplate: 'hello {{name}}',
       promptVariables: [{ key: 'name', name: 'Name', required: true, type: 'string' }] as any,
@@ -289,7 +289,7 @@ describe('useConfiguration utils', () => {
         completion_params: { temperature: 0.7 },
         mode: ModelModeType.chat,
         name: 'gpt-4o',
-        provider: 'langgenius/openai/openai',
+        provider: 'crew/openai/openai',
       }),
     )
   })
@@ -322,7 +322,7 @@ describe('useConfiguration utils', () => {
           },
         },
         model: {
-          provider: 'langgenius/openai/openai',
+          provider: 'crew/openai/openai',
           name: 'gpt-4o',
           mode: ModelModeType.chat,
           completion_params: { temperature: 0.7 },
@@ -336,7 +336,7 @@ describe('useConfiguration utils', () => {
         annotation_reply: {
           enabled: true,
           embedding_model: {
-            embedding_provider_name: 'langgenius/openai/openai',
+            embedding_provider_name: 'crew/openai/openai',
             embedding_model_name: 'text-embedding-3-small',
           },
         },
@@ -378,7 +378,7 @@ describe('useConfiguration utils', () => {
       expect.objectContaining({
         enabled: true,
         embedding_model: expect.objectContaining({
-          embedding_provider_name: 'langgenius/openai/openai',
+          embedding_provider_name: 'crew/openai/openai',
         }),
       }),
     )
@@ -411,7 +411,7 @@ describe('useConfiguration utils', () => {
           ],
         },
         model: {
-          provider: 'langgenius/openai/openai',
+          provider: 'crew/openai/openai',
           name: 'gpt-4o',
           mode: ModelModeType.chat,
           completion_params: {},
@@ -419,7 +419,7 @@ describe('useConfiguration utils', () => {
         annotation_reply: {
           enabled: false,
           embedding_model: {
-            embedding_provider_name: 'langgenius/openai/openai',
+            embedding_provider_name: 'crew/openai/openai',
             embedding_model_name: 'text-embedding-3-small',
           },
         },
@@ -473,7 +473,7 @@ describe('useConfiguration utils', () => {
           datasets: { datasets: [] },
         },
         model: {
-          provider: 'langgenius/openai/openai',
+          provider: 'crew/openai/openai',
           name: 'gpt-4o',
           mode: ModelModeType.chat,
           completion_params: {},
@@ -511,7 +511,7 @@ describe('useConfiguration utils', () => {
 
     const handleSelect = createDatasetSelectHandler({
       currentRerankModel: 'rerank-1',
-      currentRerankProvider: 'langgenius/cohere/cohere',
+      currentRerankProvider: 'crew/cohere/cohere',
       dataSets: [{ id: 'dataset-1', name: 'Dataset One' }] as any,
       datasetConfigs: {
         datasets: { datasets: [] },
@@ -557,7 +557,7 @@ describe('useConfiguration utils', () => {
 
     const handleSelect = createDatasetSelectHandler({
       currentRerankModel: 'rerank-1',
-      currentRerankProvider: 'langgenius/cohere/cohere',
+      currentRerankProvider: 'crew/cohere/cohere',
       dataSets: [{ id: 'dataset-1', name: 'Dataset One' }] as any,
       datasetConfigs: {
         datasets: { datasets: [] },
@@ -593,7 +593,7 @@ describe('useConfiguration utils', () => {
     const setDatasetConfigs = vi.fn()
     const handleSelect = createDatasetSelectHandler({
       currentRerankModel: 'rerank-1',
-      currentRerankProvider: 'langgenius/cohere/cohere',
+      currentRerankProvider: 'crew/cohere/cohere',
       dataSets: [{ id: 'dataset-1', name: 'Dataset One' }] as any,
       datasetConfigs: {
         datasets: { datasets: [] },
@@ -630,7 +630,7 @@ describe('useConfiguration utils', () => {
 
     const handleSelect = createDatasetSelectHandler({
       currentRerankModel: 'rerank-1',
-      currentRerankProvider: 'langgenius/cohere/cohere',
+      currentRerankProvider: 'crew/cohere/cohere',
       dataSets: [] as any,
       datasetConfigs: {
         datasets: { datasets: [] },
@@ -702,7 +702,7 @@ describe('useConfiguration utils', () => {
           prompt_variables: [{ key: 'name', name: 'Name', required: true, type: 'string' }],
         },
         model_id: 'gpt-4o',
-        provider: 'langgenius/openai/openai',
+        provider: 'crew/openai/openai',
         system_parameters: {
           audio_file_size_limit: 1,
           file_size_limit: 1,
@@ -792,7 +792,7 @@ describe('useConfiguration utils', () => {
             prompt_variables: [],
           },
           model_id: 'gpt-4o',
-          provider: 'langgenius/openai/openai',
+          provider: 'crew/openai/openai',
           system_parameters: {
             audio_file_size_limit: 1,
             file_size_limit: 1,
@@ -860,7 +860,7 @@ describe('useConfiguration utils', () => {
       mode: AppModeEnum.CHAT,
       modelConfig: {
         model_id: 'gpt-4o-mini',
-        provider: 'langgenius/openai/openai',
+        provider: 'crew/openai/openai',
       } as any,
       resolvedModelModeType: ModelModeType.chat,
       setCompletionParams,
@@ -873,7 +873,7 @@ describe('useConfiguration utils', () => {
       features: ['vision'],
       mode: ModelModeType.completion,
       modelId: 'gpt-4o',
-      provider: 'langgenius/openai/openai',
+      provider: 'crew/openai/openai',
     })
 
     expect(migrateToDefaultPrompt).toHaveBeenCalledWith(true, ModelModeType.completion)
@@ -917,7 +917,7 @@ describe('useConfiguration utils', () => {
       mode: AppModeEnum.COMPLETION,
       modelConfig: {
         model_id: 'gpt-4o-mini',
-        provider: 'langgenius/openai/openai',
+        provider: 'crew/openai/openai',
       } as any,
       resolvedModelModeType: ModelModeType.chat,
       setCompletionParams,
@@ -930,13 +930,13 @@ describe('useConfiguration utils', () => {
       features: [],
       mode: ModelModeType.completion,
       modelId: 'gpt-4o',
-      provider: 'langgenius/openai/openai',
+      provider: 'crew/openai/openai',
     })
     await onModelChange({
       features: [],
       mode: ModelModeType.chat,
       modelId: 'gpt-4.1',
-      provider: 'langgenius/openai/openai',
+      provider: 'crew/openai/openai',
     })
 
     expect(migrateToDefaultPrompt).toHaveBeenCalledWith(true, ModelModeType.completion)

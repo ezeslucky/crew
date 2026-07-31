@@ -1,5 +1,5 @@
 import type { createStore } from 'jotai'
-import type { LangGeniusVersionInfo } from '@/context/app-context-types'
+import type { CrewVersionInfo } from '@/context/app-context-types'
 import type { ICurrentWorkspace } from '@/models/common'
 import { atom } from 'jotai'
 import { defaultSystemFeatures } from '@/features/system-features/config'
@@ -28,7 +28,7 @@ export type ConsoleStateFixture = {
   workspacePermissionKeys?: string[]
   datasetRbacEnabled?: boolean
   knowledgeFsEnabled?: boolean
-  langGeniusVersionInfo?: Partial<LangGeniusVersionInfo>
+  crewVersionInfo?: Partial<CrewVersionInfo>
   refreshUserProfile?: () => void
   refreshCurrentWorkspace?: () => void
 }
@@ -60,7 +60,7 @@ const defaultCurrentWorkspace = {
   next_credit_reset_date: 0,
 } satisfies ICurrentWorkspace
 
-const defaultLangGeniusVersionInfo = {
+const defaultCrewVersionInfo = {
   current_env: 'CLOUD',
   current_version: '',
   latest_version: '',
@@ -72,7 +72,7 @@ const defaultLangGeniusVersionInfo = {
     model_load_balancing_enabled: false,
   },
   can_auto_update: false,
-} satisfies LangGeniusVersionInfo
+} satisfies CrewVersionInfo
 
 const userProfileAtom = atom(defaultUserProfile)
 const userProfileIdAtom = atom((get) => get(userProfileAtom).id)
@@ -99,8 +99,8 @@ const workspacePermissionKeysLoadingAtom = atom(false)
 const systemFeaturesAtom = atom(defaultSystemFeatures)
 const datasetRbacEnabledAtom = atom((get) => get(systemFeaturesAtom).rbac_enabled)
 
-const langGeniusVersionInfoAtom = atom<LangGeniusVersionInfo>(defaultLangGeniusVersionInfo)
-const langGeniusCurrentVersionAtom = atom((get) => get(langGeniusVersionInfoAtom).current_version)
+const crewVersionInfoAtom = atom<CrewVersionInfo>(defaultCrewVersionInfo)
+const crewCurrentVersionAtom = atom((get) => get(crewVersionInfoAtom).current_version)
 
 const consoleStateFixtureResolvers: Partial<
   Record<ConsoleStateOwner, ConsoleStateFixtureResolver>
@@ -138,9 +138,9 @@ export const seedRegisteredConsoleStateFixture = (store: JotaiStore) => {
     rbac_enabled: state.datasetRbacEnabled ?? false,
     knowledge_fs_enabled: state.knowledgeFsEnabled ?? false,
   })
-  store.set(langGeniusVersionInfoAtom, {
-    ...defaultLangGeniusVersionInfo,
-    ...state.langGeniusVersionInfo,
+  store.set(crewVersionInfoAtom, {
+    ...defaultCrewVersionInfo,
+    ...state.crewVersionInfo,
   })
   store.set(refreshUserProfileCallbackAtom, { callback: state.refreshUserProfile ?? (() => {}) })
   store.set(refreshCurrentWorkspaceCallbackAtom, {
@@ -219,10 +219,10 @@ export const createSystemFeaturesStateModuleMock = (getState: ConsoleStateFixtur
 
 export const createVersionStateModuleMock = (getState: ConsoleStateFixtureResolver) => {
   registerConsoleStateFixture('version', () => ({
-    langGeniusVersionInfo: getState().langGeniusVersionInfo,
+    crewVersionInfo: getState().crewVersionInfo,
   }))
   return {
-    langGeniusVersionInfoAtom,
-    langGeniusCurrentVersionAtom,
+    crewVersionInfoAtom,
+    crewCurrentVersionAtom,
   }
 }

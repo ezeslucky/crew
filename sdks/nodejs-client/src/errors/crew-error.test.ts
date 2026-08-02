@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import {
   APIError,
   AuthenticationError,
-  DifyError,
+  CrewError,
   FileUploadError,
   NetworkError,
   RateLimitError,
@@ -10,15 +10,15 @@ import {
   ValidationError,
 } from './crew-error'
 
-describe('Dify errors', () => {
+describe('Crew errors', () => {
   it('sets base error fields', () => {
-    const err = new DifyError('base', {
+    const err = new CrewError('base', {
       statusCode: 400,
       responseBody: { message: 'bad' },
       requestId: 'req',
       retryAfter: 1,
     })
-    expect(err.name).toBe('DifyError')
+    expect(err.name).toBe('CrewError')
     expect(err.statusCode).toBe(400)
     expect(err.responseBody).toEqual({ message: 'bad' })
     expect(err.requestId).toBe('req')

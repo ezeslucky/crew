@@ -185,9 +185,9 @@ def transform_datasource_credentials(environment: str):
         installer_manager = PluginInstaller()
         plugin_migration = PluginMigration()
 
-        notion_plugin_id = "langgenius/notion_datasource"
-        firecrawl_plugin_id = "langgenius/firecrawl_datasource"
-        jina_plugin_id = "langgenius/jina_datasource"
+        notion_plugin_id = "crew/notion_datasource"
+        firecrawl_plugin_id = "crew/firecrawl_datasource"
+        jina_plugin_id = "crew/jina_datasource"
         if environment == "online":
             notion_package_identifier = plugin_migration._fetch_latest_package_identifier(notion_plugin_id)
             firecrawl_package_identifier = plugin_migration._fetch_latest_package_identifier(firecrawl_plugin_id)

@@ -1,5 +1,5 @@
 # Variables
-DOCKER_REGISTRY=langgenius
+DOCKER_REGISTRY=crew
 WEB_IMAGE=$(DOCKER_REGISTRY)/crew-web
 API_IMAGE=$(DOCKER_REGISTRY)/crew-api
 SANDBOX_RUNTIME_IMAGE=$(DOCKER_REGISTRY)/crew-agent-local-sandbox

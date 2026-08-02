@@ -6,7 +6,7 @@ Crew is an open-source platform for building and managing LLM applications. Whet
 
 This guide explains how to contribute effectively and ensures a smooth experience for both contributors and maintainers.
 
-Before contributing, please read our [LICENSE](./LICENSE). By participating in this project, you also agree to follow our [Code of Conduct](https://github.com/langgenius/.github/blob/main/CODE_OF_CONDUCT.md).
+Before contributing, please read our [LICENSE](./LICENSE). By participating in this project, you also agree to follow our [Code of Conduct](https://github.com/ezeslucky/.github/blob/main/CODE_OF_CONDUCT.md).
 
 ---
 
